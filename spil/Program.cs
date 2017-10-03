@@ -28,13 +28,17 @@ namespace spil
 
             case "1":
                     break;
+                    TicTacToeMenu ticTacToeMenu = new TicTacToeMenu();
+                    ticTacToeMenu.Show();
+
             case "2":
+                    BattleshipsMenu battleshipsMenu = new BattleshipsMenu();
+                    battleshipsMenu.Show();
                     break;
             }
 
 
-            TicTacToeMenu ticTacToeMenu = new TicTacToeMenu();
-            ticTacToeMenu.Show();
+            
         }
     }
 }
