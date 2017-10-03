@@ -8,7 +8,7 @@ namespace spil
 {
     class BattleshipsMenu
     {
-        
+        Battleships battleships;
         internal void Show()
         {
             string input = "";
@@ -31,9 +31,24 @@ namespace spil
 
         internal void Menu()
         {
+            Console.WriteLine("------[BATTLE SHIPS]------");
+            Console.WriteLine();
+            if (battleships != null)
+            {
+                Console.WriteLine(battleships.Gameboard());
+                Console.WriteLine();
+            }            
+            Console.WriteLine("----------[MENU]----------");
+            Console.WriteLine();
             Console.WriteLine("Type 1 to start a new game");
             Console.WriteLine("Type 0 to quit");
+            Console.WriteLine();
+            Console.WriteLine("--------------------------");
+        }
 
+        internal void StartNew()
+        {
+            battleships = new Battleships();
         }
     }
 }
