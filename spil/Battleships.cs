@@ -4,11 +4,12 @@ namespace spil
 {
     internal class Battleships
     {
-        internal string Gameboard()
+        internal string GetGameboardView()
         {
             string gameboard="";
 
             return gameboard;
         }
+       
     }
 }

@@ -32,14 +32,14 @@ namespace spil
         internal void Menu()
         {
             Console.Clear();
-            Console.WriteLine("------[BATTLE SHIPS]------");
+            Console.WriteLine("-----[ BATTLE SHIPS ]-----");
             Console.WriteLine();
             if (battleships != null)
             {
-                Console.WriteLine(battleships.Gameboard());
+                Console.WriteLine(battleships.GetGameboardView());
                 Console.WriteLine();
             }            
-            Console.WriteLine("----------[MENU]----------");
+            Console.WriteLine("---------[ MENU ]---------");
             Console.WriteLine();
             Console.WriteLine("Type 1 to start a new game");
             Console.WriteLine("Type 0 to quit");
