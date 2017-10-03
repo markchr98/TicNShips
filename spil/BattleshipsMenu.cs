@@ -15,13 +15,13 @@ namespace spil
             bool Battleships=true;
             while (Battleships)
             {
-                Menu();
-                
+                Menu();                
 
                 input = Console.ReadLine();
                 switch (input)
                 {
                     case "1":
+                        StartNew();
                         break;
                     case "0":
                         break;
@@ -31,6 +31,7 @@ namespace spil
 
         internal void Menu()
         {
+            Console.Clear();
             Console.WriteLine("------[BATTLE SHIPS]------");
             Console.WriteLine();
             if (battleships != null)
