@@ -26,12 +26,12 @@ namespace spil
             switch(input)
             {
 
-            case "1":
-                    break;
+            case "1":                    
                     TicTacToeMenu ticTacToeMenu = new TicTacToeMenu();
                     ticTacToeMenu.Show();
+                    break;
 
-            case "2":
+                case "2":
                     BattleshipsMenu battleshipsMenu = new BattleshipsMenu();
                     battleshipsMenu.Show();
                     break;
