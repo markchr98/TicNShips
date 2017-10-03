@@ -31,7 +31,7 @@ namespace spil
             case "2":
                     break;
             }
-}
+
 
             TicTacToeMenu ticTacToeMenu = new TicTacToeMenu();
             ticTacToeMenu.Show();
