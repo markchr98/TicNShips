@@ -10,7 +10,7 @@ namespace spil
     {        
         Battleships Gameboard1;
         Battleships Gameboard2;
-        bool player1;
+        public bool player1;
         internal void Show()
         {
             string input = "";
