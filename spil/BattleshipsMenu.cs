@@ -38,10 +38,18 @@ namespace spil
             Console.Clear();
             Console.WriteLine("-----[ BATTLE SHIPS ]-----");
             Console.WriteLine();
-            if (battleships != null)
+            if (Gameboard1 != null && Gameboard2 != null)
             {
-                Console.WriteLine(battleships.GetGameboardView());
-                Console.WriteLine();
+                if (player1)
+                {
+                    Console.WriteLine(Gameboard1.GetGameboardView());
+                    Console.WriteLine();
+                }
+                else
+                {
+                    Console.WriteLine(Gameboard1.GetGameboardView());
+                    Console.WriteLine();
+                }
             }            
             Console.WriteLine("---------[ MENU ]---------");
             Console.WriteLine();
