@@ -36,6 +36,7 @@ namespace spil
         internal void Menu()
         {
             Console.Clear();
+            Console.WriteLine();
             Console.WriteLine("-----[ BATTLE SHIPS ]-----");
             Console.WriteLine();
             if (Gameboard1 != null && Gameboard2 != null)
