@@ -13,6 +13,7 @@ namespace spil
         Battleships Gameboardshoot1;
         Battleships Gameboardshoot2;
         public bool player1;
+        public bool shooting;
         internal void Show()
         {
             string input = "";
@@ -45,15 +46,28 @@ namespace spil
             {
                 if (player1)
                 {
-                    Console.WriteLine(Gameboardshoot1.GetGameboardView());
-                    Console.WriteLine(Gameboard1.GetGameboardView());
-                    Console.WriteLine();
+                    if (!shooting)
+                    {                        
+                        Console.WriteLine(Gameboard1.GetGameboardView());
+                        Console.WriteLine();
+                    }
+                    else
+                    {
+                        Console.WriteLine(Gameboardshoot1.GetGameboardView());
+                    }
                 }
                 else
                 {
-                    Console.WriteLine(Gameboardshoot2.GetGameboardView());
-                    Console.WriteLine(Gameboard2.GetGameboardView());
-                    Console.WriteLine();
+                    if (!shooting)
+                    {
+                        shooting = true;
+                        Console.WriteLine(Gameboard2.GetGameboardView());
+                        Console.WriteLine();
+                    }
+                    else
+                    {
+                        Console.WriteLine(Gameboardshoot2.GetGameboardView());
+                    }
                 }
             }            
             Console.WriteLine("---------[ MENU ]---------");
@@ -67,6 +81,7 @@ namespace spil
         internal void StartNew()
         {
             player1 = true;
+            shooting = false;
             Gameboard1 = new Battleships();
             Gameboard2 = new Battleships();
             Gameboardshoot1 = new Battleships();
