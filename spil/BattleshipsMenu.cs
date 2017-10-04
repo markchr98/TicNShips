@@ -47,15 +47,18 @@ namespace spil
                 if (player1)
                 {
                     if (!shooting)
-                    {                        
+                    {
+                        Console.WriteLine("-----[ PLAYER 1 SHIPS ]-----");
                         Console.WriteLine(Gameboard1.GetGameboardView());
                         Console.WriteLine();
                     }
                     else
                     {
-                        Console.WriteLine(Gameboard1.GetGameboardView());
-                        Console.ReadLine();
+                        Console.WriteLine("-----[ PLAYER 1 HITS ]-----");
                         Console.WriteLine(Gameboardshoot1.GetGameboardView());
+                        Console.ReadLine();
+                        Console.WriteLine("-----[ PLAYER 1 SHIPS ]-----");
+                        Console.WriteLine(Gameboard1.GetGameboardView());
                     }
                 }
                 else
@@ -63,14 +66,17 @@ namespace spil
                     if (!shooting)
                     {
                         shooting = true;
+                        Console.WriteLine("-----[ PLAYER 2 SHIPS ]-----");
                         Console.WriteLine(Gameboard2.GetGameboardView());
                         Console.WriteLine();
                     }
                     else
                     {
-                        Console.WriteLine(Gameboard2.GetGameboardView());
-                        Console.ReadLine();
+                        Console.WriteLine("-----[ PLAYER 2 HITS ]-----");
                         Console.WriteLine(Gameboardshoot2.GetGameboardView());
+                        Console.ReadLine();
+                        Console.WriteLine("-----[ PLAYER 2 SHIPS ]-----");
+                        Console.WriteLine(Gameboard2.GetGameboardView());
                     }
                 }
             }            
