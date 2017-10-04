@@ -5,6 +5,7 @@ namespace spil
     internal class Battleships
     {
         public char[,] GameBoard { get; set; }
+
         public Battleships()
         {
             GameBoard = new char[10, 10] 
