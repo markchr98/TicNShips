@@ -26,7 +26,9 @@ namespace spil
                         StartNew();
                         break;
                     case "0":
+                        Battleships = false;
                         break;
+                    default: ShowMenuSelectionError(); break;
                 }
             }
         }
@@ -54,6 +56,12 @@ namespace spil
             player1 = true;
             Gameboard1 = new Battleships();
             Gameboard2 = new Battleships();
+        }
+        private void ShowMenuSelectionError()
+        {
+            Console.WriteLine("Invalid choice.");
+            Console.WriteLine("Press enter to continue");
+            Console.ReadLine();
         }
     }
 }
