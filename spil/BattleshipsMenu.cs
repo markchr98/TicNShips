@@ -47,7 +47,7 @@ namespace spil
                 }
                 else
                 {
-                    Console.WriteLine(Gameboard1.GetGameboardView());
+                    Console.WriteLine(Gameboard2.GetGameboardView());
                     Console.WriteLine();
                 }
             }            
