@@ -11,7 +11,7 @@ namespace spil
         public char[,] GameBoard { get; set; }
         public TicTacToe()
         {
-            GameBoard = new char[3, 3] { {' ', ' ', ' '},
+            GameBoard = new char[3, 3] { {' ', ' ', ' ',},
                 {' ', ' ', ' '}, 
                 { ' ', ' ', ' '} };
         }

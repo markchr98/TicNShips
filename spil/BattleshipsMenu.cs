@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 namespace spil
 {
     class BattleshipsMenu
-    {
-        Battleships battleships;
+    {        
+        Battleships Gameboard1;
+        Battleships Gameboard2;
+        bool player1;
         internal void Show()
         {
             string input = "";
@@ -49,7 +51,9 @@ namespace spil
 
         internal void StartNew()
         {
-            battleships = new Battleships();
+            player1 = true;
+            Gameboard1 = new Battleships();
+            Gameboard2 = new Battleships();
         }
     }
 }
