@@ -124,7 +124,7 @@ namespace spil
                             Console.WriteLine("Choose x coordinate");
                             x = Convert.ToInt32(Console.ReadLine());
                             Console.WriteLine("Choose y coordinate");
-                            y = Convert.ToInt32(Console.ReadLine());
+                            y = (int)Console.ReadLine().ToUpper()[0] - 65;
 
                             for (int i = 0; i < current.Length; i++)
                             {
