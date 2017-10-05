@@ -7,37 +7,56 @@ using System.Threading.Tasks;
 namespace spil
 {
     class BattleshipsMenu
-    {        
+    {
         Battleships Gameboard1;
         Battleships Gameboard2;
         Battleships Gameboardshoot1;
         Battleships Gameboardshoot2;
         public bool player1;
         public bool shooting;
+        public bool startednewgame;
         internal void Show()
         {
             string input = "";
-            bool Battleships=true;
+            bool Battleships = true;
             while (Battleships)
             {
-                Menu();                
+
+                Menu();
 
                 input = Console.ReadLine();
-                switch (input)
+                if (startednewgame != true)
                 {
-                    case "1":
-                        StartNew();
-                        break;
-                    case "0":
-                        Battleships = false;
-                        break;
-                    default: ShowMenuSelectionError(); break;
+                    switch (input)
+                    {
+                        case "1": StartNew(); break;
+
+                        //case "2": PlaceShips(); break;
+
+                        case "0": Battleships = false; break;
+
+                        default: ShowMenuSelectionError(); break;
+                    }
                 }
+                else if (startednewgame == true) {
+                    switch (input)
+                    {
+                        case "1": StartNew(); break;
+
+                        case "2": PlaceShips(); break;
+
+                        case "0": Battleships = false; break;
+
+                        default: ShowMenuSelectionError(); break;
+                    }
+                }
+
             }
         }
 
         internal void Menu()
         {
+
             Console.Clear();
             Console.WriteLine();
             Console.WriteLine("-----[ BATTLE SHIPS ]-----");
@@ -79,26 +98,53 @@ namespace spil
                         Console.WriteLine(Gameboard2.GetGameboardView());
                     }
                 }
-            }            
-            Console.WriteLine("---------[ MENU ]---------");
-            Console.WriteLine();
-            Console.WriteLine("Type 1 to start a new game");
-            Console.WriteLine("Type 0 to quit");
-            Console.WriteLine();
-            Console.WriteLine("--------------------------");
+            }
+            if(startednewgame == true)
+            {
+                Console.WriteLine("---------[ MENU ]---------");
+                Console.WriteLine();
+                Console.WriteLine("Type 1 to start a new game");
+                Console.WriteLine("Type 2 to palce ships");
+                Console.WriteLine("Type 0 to quit");
+                Console.WriteLine();
+                Console.WriteLine("--------------------------");
+             
+                
+            }
+            else
+            {
+                Console.WriteLine("---------[ MENU ]---------");
+                Console.WriteLine();
+                Console.WriteLine("Type 1 to start a new game");
+                Console.WriteLine("Type 0 to quit");
+                Console.WriteLine();
+                Console.WriteLine("--------------------------");
+                
+               
+
+            }
         }
 
         internal void StartNew()
         {
             player1 = true;
             shooting = false;
+            startednewgame = true;
             Gameboard1 = new Battleships();
             Gameboard2 = new Battleships();
             Gameboardshoot1 = new Battleships();
             Gameboardshoot2 = new Battleships();
+            
         }
+
+        internal void PlaceShips() {
+            Console.WriteLine("You placed a ship");
+            Console.ReadLine();
+        }
+
         private void ShowMenuSelectionError()
         {
+            
             Console.WriteLine("Invalid choice.");
             Console.WriteLine("Press enter to continue");
             Console.ReadLine();
