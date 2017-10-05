@@ -168,6 +168,25 @@ namespace spil
                 else { Console.WriteLine("Option not valid"); }
             }
         }
+        public void Shoot()
+        {
+            Console.Clear();
+            Console.WriteLine("choose x coordinate");
+            int x = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("choose y coordinate");
+            int y = Convert.ToInt32((char)Console.ReadLine()[0]) - 65;
+
+            if (GameBoard[y, x]!=' ')
+            {
+                Console.WriteLine("HIT!");
+            }
+            else
+            {
+                Console.WriteLine("SPLASH!");
+            }
+
+
+        }
 
     }
 

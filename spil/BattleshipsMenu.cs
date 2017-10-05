@@ -16,46 +16,68 @@ namespace spil
         public bool player1;
         public bool shooting;
         public bool startednewgame;
+        public bool placedships;
         internal void Show()
         {
             string input = "";
 
-            bool Running=true;
+            bool Running = true;
             while (Running)
             {
 
                 Menu();
 
                 input = Console.ReadLine();
-                if (startednewgame != true)
+                switch (input)
                 {
-                    switch (input)
-                    {
-                        case "1": StartNew(); break;
-
-                        //case "2": PlaceShips(); break;
-
-                        case "0": Running = false; break;
-
-                        default: ShowMenuSelectionError(); break;
-                    }
+                    case "1": StartNew(); break;
 
 
-                }
-                else if (startednewgame == true) {
-                    switch (input)
-                    {
-                        case "1": StartNew(); break;
+                    case "2":
+                        if (startednewgame != true)
+                        {
+                            if (!placedships)
+                            {
+                                Gameboard1.PlaceShips();
+                                Gameboard2.PlaceShips();
+                                placedships = true;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Both players have already placed their ships");
+                            }
+                        }
+                        else
+                        {
+                            ShowMenuSelectionError();
+                        }
+                        break;
+                    case "3":
+                        if (startednewgame != true)
+                        {
+                            if (placedships)
+                            {
+                                if (player1) { Gameboard2.Shoot(); player1 = false; }
+                                else { Gameboard1.Shoot(); player1 = true; }
+                            }
+                            else
+                            {
+                                Console.WriteLine("You have not yet placed you ships");
+                            }
+                        }
+                        else
+                        {
+                            ShowMenuSelectionError();
+                        }
+                        break;
 
-                       case "2": Gameboard1.PlaceShips(); break;
+                    case "0": Running = false; break;
 
-                        case "0": Running = false; break;
-
-                        default: ShowMenuSelectionError(); break;
-                    }
+                    default: ShowMenuSelectionError(); break;
                 }
 
             }
+
         }
 
         internal void Menu()
@@ -108,12 +130,11 @@ namespace spil
                 Console.WriteLine("---------[ MENU ]---------");
                 Console.WriteLine();
                 Console.WriteLine("Type 1 to start a new game");
-                Console.WriteLine("Type 2 to palce ships");
+                Console.WriteLine("Type 2 to place ships");
+                Console.WriteLine("Type 3 to shoot at your enemy's ships");
                 Console.WriteLine("Type 0 to quit");
                 Console.WriteLine();
-                Console.WriteLine("--------------------------");
-             
-                
+                Console.WriteLine("--------------------------");               
             }
             else
             {
@@ -123,9 +144,6 @@ namespace spil
                 Console.WriteLine("Type 0 to quit");
                 Console.WriteLine();
                 Console.WriteLine("--------------------------");
-                
-               
-
             }
         }
 
@@ -134,6 +152,7 @@ namespace spil
             player1 = true;
             shooting = false;
             startednewgame = true;
+            placedships = false;
             Gameboard1 = new BattleBoard();
             Gameboard2 = new BattleBoard();
             Gameboardshoot1 = new BattleBoard();
@@ -143,8 +162,7 @@ namespace spil
 
 
         public void ShowMenuSelectionError()
-        {
-            
+        {            
             Console.WriteLine("Invalid choice.");
             Console.WriteLine("Press enter to continue");
             Console.ReadLine();
