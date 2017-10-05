@@ -7,17 +7,20 @@ using System.Threading.Tasks;
 namespace spil
 {
     class BattleshipsMenu
+
     {        
         BattleBoard Gameboard1;
         BattleBoard Gameboard2;
         BattleBoard Gameboardshoot1;
         BattleBoard Gameboardshoot2;
+
         public bool player1;
         public bool shooting;
         public bool startednewgame;
         internal void Show()
         {
             string input = "";
+
             bool Running=true;
             while (Running)
             {
@@ -33,10 +36,12 @@ namespace spil
 
                         //case "2": PlaceShips(); break;
 
-                        case "0": Battleships = false; break;
+                        case "0": Running = false; break;
 
                         default: ShowMenuSelectionError(); break;
                     }
+
+
                 }
                 else if (startednewgame == true) {
                     switch (input)
@@ -45,7 +50,7 @@ namespace spil
 
                         case "2": PlaceShips(); break;
 
-                        case "0": Battleships = false; break;
+                        case "0": Running = false; break;
 
                         default: ShowMenuSelectionError(); break;
                     }
@@ -129,7 +134,6 @@ namespace spil
         {
             player1 = true;
             shooting = false;
-            startednewgame = true;
             Gameboard1 = new BattleBoard();
             Gameboard2 = new BattleBoard();
             Gameboardshoot1 = new BattleBoard();
