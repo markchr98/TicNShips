@@ -18,7 +18,7 @@ namespace Test
         }
 
         [TestMethod]
-        public void ChooseGamemode()
+        public void ChooseGameMode()
       
         {
             BattleshipsMenu battleshipsMenu = new BattleshipsMenu();
@@ -35,6 +35,13 @@ namespace Test
             bool actual = battleshipsMenu.shooting;
             Assert.AreEqual(expected, actual);
         }
+        //[TestMethod]
+        //public void LoadBattleBoard()
+        //{
+        //    BattleBoard battleBoard = new BattleBoard();
+        //   =  ;
+        //     = BattleBoard.
+        //}
     }
 }
 
