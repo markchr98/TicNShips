@@ -57,8 +57,8 @@ namespace spil
                         {
                             if (placedships)
                             {
-                                if (player1) { Gameboard2.Shoot(); player1 = false; }
-                                else { Gameboard1.Shoot(); player1 = true; }
+                                if (player1) { Gameboardshoot1.Shoot(Gameboard2); player1 = false; }
+                                else { Gameboardshoot2.Shoot(Gameboard1); player1 = true; }
                             }
                             else
                             {

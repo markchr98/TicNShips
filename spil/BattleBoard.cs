@@ -168,21 +168,40 @@ namespace spil
                 else { Console.WriteLine("Option not valid"); }
             }
         }
-        public void Shoot()
+        public void Shoot(BattleBoard Enemy)
         {
-            Console.Clear();
-            Console.WriteLine("choose x coordinate");
-            int x = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("choose y coordinate");
-            int y = Convert.ToInt32((char)Console.ReadLine()[0]) - 65;
+            bool running = true;
+            while (running) {
 
-            if (GameBoard[y, x]!=' ')
-            {
-                Console.WriteLine("HIT!");
-            }
-            else
-            {
-                Console.WriteLine("SPLASH!");
+                Console.WriteLine("choose x coordinate");
+                int x = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("choose y coordinate");
+                int y = Convert.ToInt32((char)Console.ReadLine()[0]) - 65;
+
+                if (x < 10 && x > -1 && y < 10 && y > -1 && GameBoard[y, x] == '•')
+                {
+
+                    //if(hvis et skib er sunket) {Console.WriteLine("Sunk!");}
+                    /*else*/
+                    if (Enemy.GameBoard[y, x] != ' ')
+                    {
+                        GameBoard[y, x] = '•';
+                        Console.WriteLine("HIT!");
+                        running = false;
+                    }
+                    else
+                    {
+                        GameBoard[y, x] = '•';
+                        Console.WriteLine("SPLASH!");
+                        running = false;
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("That is not a valid position");
+                    Console.WriteLine("Press enter to continue");
+                    Console.ReadLine();
+                }
             }
 
 
