@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace spil
 {
-    class BattleshipsMenu
-
+    public class BattleshipsMenu
     {        
         BattleBoard Gameboard1;
         BattleBoard Gameboard2;
