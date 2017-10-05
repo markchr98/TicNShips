@@ -11,19 +11,28 @@ namespace spil
         Submarine,
         Destroyer,
         Patrolboat,
-        Battleship
+        Battleship,
+        Notvalid
     };
     class BattleShip
     {
         private Type type;
         private int quantity;
         private int length;
-        public BattleShip(Type type, int quantity, int length)
+        private char symbol;
+        public BattleShip(Type type, int quantity, char symbol, int length)
         {
             this.type = type;
             this.quantity = quantity;
             this.length = length;
+            this.symbol = symbol;
         }
         public Type Type { get { return type; } }
+
+        public char Symbol { get { return symbol; } }
+
+        public int Quantity { get { return quantity; } }
+
+        public int Length { get { return length; } }
     }
 }
