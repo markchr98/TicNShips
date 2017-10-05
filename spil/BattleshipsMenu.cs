@@ -142,7 +142,7 @@ namespace spil
         }
 
 
-        private void ShowMenuSelectionError()
+        public void ShowMenuSelectionError()
         {
             
             Console.WriteLine("Invalid choice.");

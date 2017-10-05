@@ -42,6 +42,14 @@ namespace Test
         //   =  ;
         //     = BattleBoard.
         //}
+        //[TestMethod]
+        //public void MenuSelectionError()
+        //{
+        //    BattleshipsMenu battleshipsMenu = new BattleshipsMenu();
+        //     string expected = "Invalid choice.";
+        //    string actual = battleshipsMenu.ShowMenuSelectionError;
+        //    Assert.ReferenceEquals (expected, actual);
+        //}
     }
 }
 
