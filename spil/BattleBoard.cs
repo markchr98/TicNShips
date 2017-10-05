@@ -83,6 +83,8 @@ namespace spil
         }
         internal void PlaceShips()
         {
+
+            
             BattleShip current;
             int x = 0;
             int y = 0;
@@ -90,6 +92,11 @@ namespace spil
             bool running = true;
             while (running)
             {
+                Console.WriteLine("Choose 1 for aircraftcarrier");
+                Console.WriteLine("Choose 2 for battleship");
+                Console.WriteLine("Choose 3 for destroyer");
+                Console.WriteLine("Choose 4 for patrolboat");
+                Console.WriteLine("Choose 5 for submarine");
                 switch (input = Console.ReadLine())
                 {
 
@@ -108,10 +115,17 @@ namespace spil
 
                 if (current != notvalid)
                 {
+                    Console.WriteLine("Choose v for Vertical or h for horizontal");
                     switch (input = Console.ReadLine())
                     {
 
                         case "h":
+
+                            Console.WriteLine("Choose x coordinate");
+                            x = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("Choose y coordinate");
+                            y = Convert.ToInt32(Console.ReadLine());
+
                             for (int i = 0; i < current.Length; i++)
                             {
                                 GameBoard[y, x + i] = current.Symbol;
@@ -119,6 +133,11 @@ namespace spil
                             break;
 
                         case "v":
+                            Console.WriteLine("Choose x coordinate");
+                            x = Convert.ToInt32(Console.ReadLine());
+                            Console.WriteLine("Choose y coordinate");
+                            y = (int)Console.ReadLine().ToUpper()[0]-65;
+
                             for (int i = 0; i < current.Length; i++)
                             {
                                 GameBoard[y + i, x] = current.Symbol;

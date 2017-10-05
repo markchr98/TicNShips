@@ -47,7 +47,7 @@ namespace spil
                     {
                         case "1": StartNew(); break;
 
-                       // case "2": PlaceShips(); break;
+                       case "2": Gameboard1.PlaceShips(); break;
 
                         case "0": Running = false; break;
 
@@ -133,6 +133,7 @@ namespace spil
         {
             player1 = true;
             shooting = false;
+            startednewgame = true;
             Gameboard1 = new BattleBoard();
             Gameboard2 = new BattleBoard();
             Gameboardshoot1 = new BattleBoard();
