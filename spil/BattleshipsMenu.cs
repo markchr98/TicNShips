@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace spil
 {
     public class BattleshipsMenu
-    {        
+    {
         BattleBoard Gameboard1;
         BattleBoard Gameboard2;
         BattleBoard Gameboardshoot1;
@@ -34,7 +34,7 @@ namespace spil
 
 
                     case "2":
-                        if (startednewgame != true)
+                        if (startednewgame)
                         {
                             if (!placedships)
                             {
@@ -45,6 +45,8 @@ namespace spil
                             else
                             {
                                 Console.WriteLine("Both players have already placed their ships");
+                                Console.WriteLine("Press enter to continue");
+                                Console.ReadLine();
                             }
                         }
                         else
@@ -53,7 +55,7 @@ namespace spil
                         }
                         break;
                     case "3":
-                        if (startednewgame != true)
+                        if (startednewgame)
                         {
                             if (placedships)
                             {
@@ -62,7 +64,9 @@ namespace spil
                             }
                             else
                             {
-                                Console.WriteLine("You have not yet placed you ships");
+                                Console.WriteLine("You have not yet placed your ships");
+                                Console.WriteLine("Press enter to continue");
+                                Console.ReadLine();
                             }
                         }
                         else
@@ -125,7 +129,8 @@ namespace spil
                     }
                 }
             }
-            if(startednewgame == true)
+
+            if (startednewgame)
             {
                 Console.WriteLine("---------[ MENU ]---------");
                 Console.WriteLine();
@@ -134,7 +139,7 @@ namespace spil
                 Console.WriteLine("Type 3 to shoot at your enemy's ships");
                 Console.WriteLine("Type 0 to quit");
                 Console.WriteLine();
-                Console.WriteLine("--------------------------");               
+                Console.WriteLine("--------------------------");
             }
             else
             {
@@ -145,6 +150,7 @@ namespace spil
                 Console.WriteLine();
                 Console.WriteLine("--------------------------");
             }
+
         }
 
         internal void StartNew()
@@ -157,12 +163,12 @@ namespace spil
             Gameboard2 = new BattleBoard();
             Gameboardshoot1 = new BattleBoard();
             Gameboardshoot2 = new BattleBoard();
-            
+
         }
 
 
         public void ShowMenuSelectionError()
-        {            
+        {
             Console.WriteLine("Invalid choice.");
             Console.WriteLine("Press enter to continue");
             Console.ReadLine();

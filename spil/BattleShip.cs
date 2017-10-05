@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace spil
 {
     public enum Type {
-        Aircraftcarrier,
+        Carrier,
         Submarine,
         Destroyer,
         Patrolboat,
