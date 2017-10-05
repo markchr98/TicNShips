@@ -118,29 +118,47 @@ namespace spil
                     Console.WriteLine("Choose v for Vertical or h for horizontal");
                     switch (input = Console.ReadLine())
                     {
-
+                        
                         case "h":
-
-                            Console.WriteLine("Choose x coordinate");
-                            x = Convert.ToInt32(Console.ReadLine());
-                            Console.WriteLine("Choose y coordinate");
-                            y = (int)Console.ReadLine().ToUpper()[0] - 65;
-
-                            for (int i = 0; i < current.Length; i++)
+                            bool horizontal = true;
+                            while (horizontal)
                             {
-                                GameBoard[y, x + i] = current.Symbol;
+                                Console.WriteLine("x between " + 0 + " & " + (10 - current.Length) + " & y between A & J");
+                                Console.WriteLine("Choose x coordinate");
+                                x = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine("Choose y coordinate");
+                                y = (int)Console.ReadLine().ToUpper()[0] - 65;
+                                if (x <= 10 - current.Length && x > -1 && y <= 10 && y > -1)
+                                {
+                                    for (int i = 0; i < current.Length; i++)
+                                    {
+                                        GameBoard[y, x + i] = current.Symbol;
+                                    }
+                                    horizontal = false;
+                                }
+                                else {Console.WriteLine("Out of Bounds");}
                             }
                             break;
+                                
 
                         case "v":
-                            Console.WriteLine("Choose x coordinate");
-                            x = Convert.ToInt32(Console.ReadLine());
-                            Console.WriteLine("Choose y coordinate");
-                            y = (int)Console.ReadLine().ToUpper()[0]-65;
-
-                            for (int i = 0; i < current.Length; i++)
+                            bool vertical = true;
+                            while (vertical)
                             {
-                                GameBoard[y + i, x] = current.Symbol;
+                                Console.WriteLine( "x between " + 0 + " & " + 9 + " & y between A " + "& " + ((char)(75 - current.Length)).ToString() );
+                                Console.WriteLine("Choose x coordinate");
+                                x = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine("Choose y coordinate");
+                                y = (int)Console.ReadLine().ToUpper()[0] - 65;
+                                if (y <= 10 - current.Length && y > -1 && x <= 10 && x > -1)
+                                {
+                                    for (int i = 0; i < current.Length; i++)
+                                    {
+                                        GameBoard[y + i, x] = current.Symbol;
+                                    }
+                                    vertical = false;
+                                }
+                                else { Console.WriteLine("Out of bounds"); }
                             }
                             break;
 
