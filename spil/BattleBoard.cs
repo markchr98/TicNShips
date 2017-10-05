@@ -2,10 +2,10 @@
 
 namespace spil
 {
-    internal class Battleships
+    internal class BattleBoard
     {
         public char[,] GameBoard { get; set; }
-        public Battleships()
+        public BattleBoard()
         {
             GameBoard = new char[10, 10] 
             {

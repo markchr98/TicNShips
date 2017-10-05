@@ -8,14 +8,14 @@ namespace spil
 {
     class BattleshipsMenu
     {        
-        Battleships Gameboard1;
-        Battleships Gameboard2;
+        BattleBoard Gameboard1;
+        BattleBoard Gameboard2;
         public bool player1;
         internal void Show()
         {
             string input = "";
-            bool Battleships=true;
-            while (Battleships)
+            bool Running=true;
+            while (Running)
             {
                 Menu();                
 
@@ -26,7 +26,7 @@ namespace spil
                         StartNew();
                         break;
                     case "0":
-                        Battleships = false;
+                        Running = false;
                         break;
                     default: ShowMenuSelectionError(); break;
                 }
@@ -63,8 +63,8 @@ namespace spil
         internal void StartNew()
         {
             player1 = true;
-            Gameboard1 = new Battleships();
-            Gameboard2 = new Battleships();
+            Gameboard1 = new BattleBoard();
+            Gameboard2 = new BattleBoard();
         }
         private void ShowMenuSelectionError()
         {
