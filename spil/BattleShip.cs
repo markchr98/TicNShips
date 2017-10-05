@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace spil
 {
-    class BattleShip
+    public class BattleShip
     {
         private string type;
         private int quantity;
