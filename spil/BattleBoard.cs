@@ -4,6 +4,7 @@ namespace spil
 {
     internal class BattleBoard
     {
+        BattleShip 
         public char[,] GameBoard { get; set; }
         public BattleBoard()
         {
@@ -75,6 +76,12 @@ namespace spil
 
             return v + Output;
         }
-       
+        internal void PlaceShips()
+        {
+                       
+            Console.WriteLine("You placed a ship");
+            Console.ReadLine();
+        }
+
     }
 }

@@ -48,7 +48,7 @@ namespace spil
                     {
                         case "1": StartNew(); break;
 
-                        case "2": PlaceShips(); break;
+                       // case "2": PlaceShips(); break;
 
                         case "0": Running = false; break;
 
@@ -141,10 +141,6 @@ namespace spil
             
         }
 
-        internal void PlaceShips() {
-            Console.WriteLine("You placed a ship");
-            Console.ReadLine();
-        }
 
         private void ShowMenuSelectionError()
         {
