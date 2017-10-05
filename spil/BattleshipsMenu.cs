@@ -12,32 +12,55 @@ namespace spil
         BattleBoard Gameboard2;
         BattleBoard Gameboardshoot1;
         BattleBoard Gameboardshoot2;
+
         public bool player1;
         public bool shooting;
+        public bool startednewgame;
         internal void Show()
         {
             string input = "";
+
             bool Running=true;
             while (Running)
             {
-                Menu();                
+
+                Menu();
 
                 input = Console.ReadLine();
-                switch (input)
+                if (startednewgame != true)
                 {
-                    case "1":
-                        StartNew();
-                        break;
-                    case "0":
-                        Running = false;
-                        break;
-                    default: ShowMenuSelectionError(); break;
+                    switch (input)
+                    {
+                        case "1": StartNew(); break;
+
+                        //case "2": PlaceShips(); break;
+
+                        case "0": Running = false; break;
+
+                        default: ShowMenuSelectionError(); break;
+                    }
+
+
                 }
+                else if (startednewgame == true) {
+                    switch (input)
+                    {
+                        case "1": StartNew(); break;
+
+                        case "2": PlaceShips(); break;
+
+                        case "0": Running = false; break;
+
+                        default: ShowMenuSelectionError(); break;
+                    }
+                }
+
             }
         }
 
         internal void Menu()
         {
+
             Console.Clear();
             Console.WriteLine();
             Console.WriteLine("-----[ BATTLE SHIPS ]-----");
@@ -79,13 +102,31 @@ namespace spil
                         Console.WriteLine(Gameboard2.GetGameboardView());
                     }
                 }
-            }            
-            Console.WriteLine("---------[ MENU ]---------");
-            Console.WriteLine();
-            Console.WriteLine("Type 1 to start a new game");
-            Console.WriteLine("Type 0 to quit");
-            Console.WriteLine();
-            Console.WriteLine("--------------------------");
+            }
+            if(startednewgame == true)
+            {
+                Console.WriteLine("---------[ MENU ]---------");
+                Console.WriteLine();
+                Console.WriteLine("Type 1 to start a new game");
+                Console.WriteLine("Type 2 to palce ships");
+                Console.WriteLine("Type 0 to quit");
+                Console.WriteLine();
+                Console.WriteLine("--------------------------");
+             
+                
+            }
+            else
+            {
+                Console.WriteLine("---------[ MENU ]---------");
+                Console.WriteLine();
+                Console.WriteLine("Type 1 to start a new game");
+                Console.WriteLine("Type 0 to quit");
+                Console.WriteLine();
+                Console.WriteLine("--------------------------");
+                
+               
+
+            }
         }
 
         internal void StartNew()
@@ -96,9 +137,17 @@ namespace spil
             Gameboard2 = new BattleBoard();
             Gameboardshoot1 = new BattleBoard();
             Gameboardshoot2 = new BattleBoard();
+            
         }
+
+        internal void PlaceShips() {
+            Console.WriteLine("You placed a ship");
+            Console.ReadLine();
+        }
+
         private void ShowMenuSelectionError()
         {
+            
             Console.WriteLine("Invalid choice.");
             Console.WriteLine("Press enter to continue");
             Console.ReadLine();
