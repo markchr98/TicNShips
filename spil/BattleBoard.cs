@@ -4,11 +4,16 @@ namespace spil
 {
     internal class BattleBoard
     {
-        BattleShip 
+        BattleShip aircraftcarrier = new BattleShip(Type.Aircraftcarrier, 1, '■', 5);
+        BattleShip destroyer = new BattleShip(Type.Destroyer, 2, '⌂', 3);
+        BattleShip submarine = new BattleShip(Type.Submarine, 1, '◙', 3);
+        BattleShip patrolboat = new BattleShip(Type.Patrolboat, 3, '▼', 2);
+        BattleShip battleship = new BattleShip(Type.Battleship, 2, '♥', 4);
+        BattleShip notvalid = new BattleShip(Type.Battleship, 0, ' ', 0);
         public char[,] GameBoard { get; set; }
         public BattleBoard()
         {
-            GameBoard = new char[10, 10] 
+            GameBoard = new char[10, 10]
             {
                 {' ', ' ', ' ',' ',' ',' ',' ',' ',' ',' '},
                 {' ', ' ', ' ',' ',' ',' ',' ',' ',' ',' '},
@@ -27,15 +32,15 @@ namespace spil
             char[,] gameboard = GameBoard;
 
             //Variables
-            string Output="";
+            string Output = "";
             int LineLength = 0;
             int UniCounter = 65;
-            string v = "";            
+            string v = "";
 
             //Loop for Printing of array
             for (int j = 0; j < 10; j++)
             {
-                int OGLength = Output.Length;                
+                int OGLength = Output.Length;
                 Output += " " + (char)UniCounter + " ";
 
                 for (int i = 0; i < 10; i++)
@@ -43,17 +48,17 @@ namespace spil
                     Output += "| " + gameboard[j, i] + " ";
                 }
                 Output += "|";
-                
-                LineLength = Output.Length - OGLength;                
+
+                LineLength = Output.Length - OGLength;
 
                 Output += "\n";
 
-                for (int i=LineLength; i>0; i--)
+                for (int i = LineLength; i > 0; i--)
                 {
                     Output += '-';
-                }                
-                Output += "\n";                
-                UniCounter++;                
+                }
+                Output += "\n";
+                UniCounter++;
             }
 
             //Loop for printing numbers
@@ -66,7 +71,7 @@ namespace spil
                 }
                 Output += i;
             }
-           
+
             //Print initial border
             for (int i = LineLength; i > 0; i--)
             {
@@ -78,10 +83,55 @@ namespace spil
         }
         internal void PlaceShips()
         {
-                       
-            Console.WriteLine("You placed a ship");
-            Console.ReadLine();
+            BattleShip current;
+            int x = 0;
+            int y = 0;
+            string input = "";
+            bool running = true;
+            while (running)
+            {
+                switch (input = Console.ReadLine())
+                {
+
+                    case "1": current = aircraftcarrier; running = false; break;
+
+                    case "2": current = battleship; running = false; break;
+
+                    case "3": current = destroyer; running = false; break;
+
+                    case "4": current = patrolboat; running = false; break;
+
+                    case "5": current = submarine; running = false; break;
+
+                    default: current = notvalid; break;
+                }
+
+                if (current != notvalid)
+                {
+                    switch (input = Console.ReadLine())
+                    {
+
+                        case "h":
+                            for (int i = 0; i < current.Length; i++)
+                            {
+                                GameBoard[y, x + i] = current.Symbol;
+                            }
+                            break;
+
+                        case "v":
+                            for (int i = 0; i < current.Length; i++)
+                            {
+                                GameBoard[y + i, x] = current.Symbol;
+                            }
+                            break;
+
+                        default: break;
+                    }
+                }
+                else { Console.WriteLine("Option not valid"); }
+            }
         }
 
     }
+
 }
