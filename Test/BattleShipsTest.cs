@@ -1,17 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using spil;
 
 namespace Test
 {
     [TestClass]
-    class BattleShipsTest
+   public class BattleshipsTest
     {
         [TestMethod]
+        public void PlayerOneTurn()
+        {
+            BattleshipsMenu battleshipsMenu = new BattleshipsMenu ();
+            bool expected = false;
+            bool actual = battleshipsMenu.player1;
+            Assert.AreEqual(expected, actual);
 
+        }
     }
-}
+    //{
+    //    [TestMethod]
+    //    public void ChooseGamemode()
+    //        {
+    //        Program program = new program;
+    //        int expectedResult = program.Run;
+    //         }
+    }
+
