@@ -8,17 +8,17 @@ namespace spil
 {
     class BattleshipsMenu
     {        
-        Battleships Gameboard1;
-        Battleships Gameboard2;
-        Battleships Gameboardshoot1;
-        Battleships Gameboardshoot2;
+        BattleBoard Gameboard1;
+        BattleBoard Gameboard2;
+        BattleBoard Gameboardshoot1;
+        BattleBoard Gameboardshoot2;
         public bool player1;
         public bool shooting;
         internal void Show()
         {
             string input = "";
-            bool Battleships=true;
-            while (Battleships)
+            bool Running=true;
+            while (Running)
             {
                 Menu();                
 
@@ -29,7 +29,7 @@ namespace spil
                         StartNew();
                         break;
                     case "0":
-                        Battleships = false;
+                        Running = false;
                         break;
                     default: ShowMenuSelectionError(); break;
                 }
@@ -92,10 +92,10 @@ namespace spil
         {
             player1 = true;
             shooting = false;
-            Gameboard1 = new Battleships();
-            Gameboard2 = new Battleships();
-            Gameboardshoot1 = new Battleships();
-            Gameboardshoot2 = new Battleships();
+            Gameboard1 = new BattleBoard();
+            Gameboard2 = new BattleBoard();
+            Gameboardshoot1 = new BattleBoard();
+            Gameboardshoot2 = new BattleBoard();
         }
         private void ShowMenuSelectionError()
         {
