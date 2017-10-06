@@ -14,7 +14,7 @@ namespace spil
         Battleship,
         Notvalid
     };
-    class BattleShip
+        public class BattleShip
     {
         private Type type;
         private int quantity;

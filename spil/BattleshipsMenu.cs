@@ -153,7 +153,7 @@ namespace spil
 
         }
 
-        internal void StartNew()
+        public void StartNew()
         {
             player1 = true;
             shooting = false;
