@@ -38,8 +38,8 @@ namespace spil
                         {
                             if (!placedships)
                             {
-                                Gameboard1.PlaceShips();
-                                Gameboard2.PlaceShips();
+                                Gameboard1.ChooseShip();
+                                Gameboard2.ChooseShip();
                                 placedships = true;
                             }
                             else
