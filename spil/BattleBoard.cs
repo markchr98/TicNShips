@@ -1,14 +1,15 @@
 ﻿using System;
+using System.Threading;
 
 namespace spil
 {
     internal class BattleBoard
     {
-        BattleShip carrier = new BattleShip(Type.Carrier, 1, '■', 5);
-        BattleShip destroyer = new BattleShip(Type.Destroyer, 2, '⌂', 3);
-        BattleShip submarine = new BattleShip(Type.Submarine, 1, '◙', 3);
-        BattleShip patrolboat = new BattleShip(Type.Patrolboat, 3, '▼', 2);
-        BattleShip battleship = new BattleShip(Type.Battleship, 2, '♥', 4);
+        BattleShip carrier = new BattleShip(Type.Carrier, 1, 'C', 5);
+        BattleShip destroyer = new BattleShip(Type.Destroyer, 2, 'D', 3);
+        BattleShip submarine = new BattleShip(Type.Submarine, 1, 'S', 3);
+        BattleShip patrolboat = new BattleShip(Type.Patrolboat, 3, 'P', 2);
+        BattleShip battleship = new BattleShip(Type.Battleship, 2, 'B', 4);
         BattleShip notvalid = new BattleShip(Type.Battleship, 0, ' ', 0);
         public char[,] GameBoard { get; set; }
         public BattleBoard()
@@ -81,54 +82,53 @@ namespace spil
 
             return v + Output;
         }
-        internal void PlaceShips()
-        {            
+        internal void ChooseShip()
+        {
             BattleShip current;
-            int x = 0;
-            int y = 0;
 
-            int CarrierQuantity =  carrier.Quantity;
+            int CarrierQuantity = carrier.Quantity;
             int SubmarineQuantity = submarine.Quantity;
             int BattleshipQuantity = battleship.Quantity;
             int PatrolboatQuantity = patrolboat.Quantity;
             int DestroyerQuantity = destroyer.Quantity;
 
-            string input = "";
+
             bool running = true;
             while (running)
             {
                 Console.Clear();
-                GetGameboardView();
-                Console.WriteLine("Choose 1 for aircraftcarrier:" + CarrierQuantity + " Left");
-                Console.WriteLine("Choose 2 for battleship: " + BattleshipQuantity + " Left");
-                Console.WriteLine("Choose 3 for destroyer: " + DestroyerQuantity + " Left");
-                Console.WriteLine("Choose 4 for patrolboat: " + PatrolboatQuantity + " Left");
-                Console.WriteLine("Choose 5 for submarine: " + SubmarineQuantity + " Left");
+                Console.WriteLine(GetGameboardView());
+                Console.WriteLine("Choose 1 for Carrier:" + CarrierQuantity + " remaining");
+                Console.WriteLine("Choose 2 for Battleship: " + BattleshipQuantity + " remaining");
+                Console.WriteLine("Choose 3 for Destroyer: " + DestroyerQuantity + " remaining");
+                Console.WriteLine("Choose 4 for Patrolboat: " + PatrolboatQuantity + " remaining");
+                Console.WriteLine("Choose 5 for Submarine: " + SubmarineQuantity + " remaining");
 
-                switch (input = Console.ReadLine())
+                var input = Console.ReadKey(false).Key;
+
+                switch (input)
                 {
-
-                    case "1":
+                    case ConsoleKey.D1:
                         if (CarrierQuantity != 0) { current = carrier; CarrierQuantity -= 1; }
                         else { current = notvalid; }
                         break;
 
-                    case "2":
+                    case ConsoleKey.D2:
                         if (BattleshipQuantity != 0) { current = battleship; BattleshipQuantity -= 1; }
                         else { current = notvalid; }
                         break;
 
-                    case "3":
+                    case ConsoleKey.D3:
                         if (DestroyerQuantity != 0) { current = destroyer; DestroyerQuantity -= 1; }
                         else { current = notvalid; }
                         break;
 
-                    case "4":
+                    case ConsoleKey.D4:
                         if (PatrolboatQuantity != 0) { current = patrolboat; PatrolboatQuantity -= 1; }
                         else { current = notvalid; }
                         break;
 
-                    case "5":
+                    case ConsoleKey.D5:
                         if (SubmarineQuantity != 0) { current = submarine; SubmarineQuantity -= 1; }
                         else { current = notvalid; }
                         break;
@@ -137,66 +137,19 @@ namespace spil
                 }
 
 
-                if (current != notvalid)
+                if (current != notvalid) // If ship choice is valid, do the following:
                 {
-                    bool coordinate = true;
-                    while (coordinate) {
-                        Console.WriteLine("Choose v for Vertical or h for horizontal");
-                        switch (input = Console.ReadLine())
-                        {
+                    // Show gameboard and menu
+                    Console.Clear();
+                    Console.WriteLine(GetGameboardView());
+                    Console.WriteLine();
+                    Console.WriteLine("Use arrows to move ship.");
+                    Console.WriteLine("Press R to rotate ship.");
+                    Console.WriteLine("Press ENTER to place ship.");
 
-                            case "h":
-                                bool horizontal = true;
-                                while (horizontal)
-                                {
-                                    Console.WriteLine("x between " + 0 + " & " + (10 - current.Length) + " & y between A & J");
-                                    Console.WriteLine("Choose x coordinate");
-                                    x = Convert.ToInt32(Console.ReadLine());
-                                    Console.WriteLine("Choose y coordinate");
-                                    y = (int)Console.ReadLine().ToUpper()[0] - 65;
-                                    if (x <= 10 - current.Length && x > -1 && y <= 10 && y > -1)
-                                    {
-                                        for (int i = 0; i < current.Length; i++)
-                                        {
-                                            GameBoard[y, x + i] = current.Symbol;
-                                        }
-                                        horizontal = false;
-                                        coordinate = false;
-                                    }
-                                    else { Console.WriteLine("Out of Bounds"); }
-                                }
-                                break;
-
-
-                            case "v":
-                                bool vertical = true;
-                                while (vertical)
-                                {
-                                    Console.WriteLine("x between " + 0 + " & " + 9 + " & y between A " + "& " + ((char)(75 - current.Length)).ToString());
-                                    Console.WriteLine("Choose x coordinate");
-                                    x = Convert.ToInt32(Console.ReadLine());
-                                    Console.WriteLine("Choose y coordinate");
-                                    y = (int)Console.ReadLine().ToUpper()[0] - 65;
-                                    if (y <= 10 - current.Length && y > -1 && x <= 10 && x > -1)
-                                    {
-                                        for (int i = 0; i < current.Length; i++)
-                                        {
-                                            GameBoard[y + i, x] = current.Symbol;
-                                        }
-                                        vertical = false;
-                                        coordinate = false;
-                                    }
-                                    else { Console.WriteLine("Out of bounds"); }
-                                }
-                                break;
-
-                            default:
-                                Console.WriteLine("Option not valid");
-                                Console.WriteLine("Press enter to continue");
-                                Console.ReadLine();
-                                break;
-                        }
-                    }
+                    // Call the function for placing ships
+                    bool placeMode = true;
+                    placeShips(placeMode, current);
                 }
                 else
                 {
@@ -216,49 +169,234 @@ namespace spil
                 }
             }
         }
-        public void Shoot(BattleBoard Enemy)
-        {             
-            bool running = true;
-            
-            while (running) {
 
-                Console.Clear();
-                GetGameboardView();
+        private void placeShips(bool placeMode, BattleShip current) // Function which handles placement of ships
+        {
+            BattleBoard Dummy = new BattleBoard();
+            int y = 0, x = 0;
+            bool vertical = true;
+            while (placeMode)
+            {
+                Dummy.GameBoard = GameBoard.Clone() as char[,];
 
-                Console.WriteLine("choose x coordinate");
-                int x = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("choose y coordinate");
-                int y = Convert.ToInt32((char)Console.ReadLine()[0]) - 65;
-
-                if (x < 10 && x > -1 && y < 10 && y > -1 && GameBoard[y, x] =='•' && GameBoard[y, x]=='○')
+                for (int i = 0; i < current.Length; i++)
                 {
-
-                    //if(hvis et skib er sunket) {Console.WriteLine("Sunk!");}
-                    
-                    /*else*/if (Enemy.GameBoard[y, x] != ' ')
+                    if (vertical)
                     {
-                        GameBoard[y, x] = '•';
-                        Console.WriteLine("HIT!");
-                        running = false;
+                        Dummy.GameBoard[y + i, x] = current.Symbol;
                     }
                     else
                     {
-                        GameBoard[y, x] = '○';
-                        Console.WriteLine("SPLASH!");
-                        running = false;
+                        Dummy.GameBoard[y, x + i] = current.Symbol;
                     }
                 }
-                else
+                Console.Clear();
+                Console.WriteLine(Dummy.GetGameboardView());
+                Console.WriteLine();
+                Console.WriteLine("Use arrows to move ship.");
+                Console.WriteLine("Press R to rotate ship.");
+                Console.WriteLine("Press ENTER to place ship.");
+
+                var ch = Console.ReadKey(false).Key;
+                switch (ch)
                 {
-                    Console.WriteLine("That is not a valid position");
-                    Console.WriteLine("Press enter to continue");
-                    Console.ReadLine();
+                    case ConsoleKey.R:
+                        vertical = !vertical; // Switch between true and false
+                        y = 0;
+                        x = 0;
+                        break;
+                    case ConsoleKey.UpArrow:
+                        if (y > 0)
+                        {
+                            y -= 1;
+                        }
+                        else { Console.WriteLine("Out of bounds!"); }
+                        break;
+                    case ConsoleKey.DownArrow:
+                        if (vertical)
+                        {
+                            if (y < 10 - current.Length)
+                            {
+                                y += 1;
+                            }
+                            else { Console.WriteLine("Out of bounds!"); }
+                        }
+                        else
+                        {
+                            if (y < 9)
+                            {
+                                y += 1;
+                            }
+                            else { Console.WriteLine("Out of bounds!"); }
+                        }
+                        break;
+                    case ConsoleKey.LeftArrow:
+                        if (x > 0)
+                        {
+                            x -= 1;
+                        }
+                        else { Console.WriteLine("Out of bounds!"); }
+                        break;
+                    case ConsoleKey.RightArrow:
+                        if (vertical)
+                        {
+                            if (x < 9)
+                            {
+                                x += 1;
+                            }
+                            else { Console.WriteLine("Out of bounds!"); }
+                        }
+                        else
+                        {
+                            if (x < 10 - current.Length)
+                            {
+                                x += 1;
+                            }
+                            else { Console.WriteLine("Out of bounds!"); }
+                        }
+                        break;
+                    case ConsoleKey.Enter:
+
+                        bool valid = false;
+
+                        for (int i = 0; i < current.Length; i++)
+                        {
+                            if (vertical)
+                            {
+                                if (GameBoard[y + i, x] == ' ')
+                                {
+                                    valid = true;
+                                }
+                                else
+                                {
+                                    valid = false;
+                                    break;
+                                }
+                            }
+                            else
+                            {
+                                if (GameBoard[y, x + i] == ' ')
+                                {
+                                    valid = true;
+                                }
+                                else
+                                {
+                                    valid = false;
+                                    break;
+                                }
+
+                            }
+                        }
+                        if (valid)
+                        {
+                            for (int i = 0; i < current.Length; i++)
+                            {
+                                if (vertical)
+                                {
+                                    GameBoard[y + i, x] = current.Symbol;
+                                }
+                                else
+                                {
+                                    GameBoard[y, x + i] = current.Symbol;
+                                }
+                            }
+                            placeMode = false;
+                        }
+                        else
+                        {
+                            Console.Clear();
+                            Console.WriteLine();
+                            Console.WriteLine("Placement not valid");
+                            Thread.Sleep(1500);
+                        }
+                        //Console.WriteLine(y.ToString() +", "+ x.ToString());
+                        break;
                 }
             }
-
-
         }
+        public void Shoot(BattleBoard Enemy)
+        {
+            bool running = true;
+            int y = 0;
+            int x = 0;
+            BattleBoard Dummy = new BattleBoard();
 
+            while (running)
+            {
+                Dummy.GameBoard = GameBoard.Clone() as char[,];
+                Dummy.GameBoard[y, x] = '+';
+
+                Console.Clear();
+                Console.WriteLine(Dummy.GetGameboardView());                
+
+                var ch = Console.ReadKey(false).Key;
+
+                switch (ch)
+                {
+                    case ConsoleKey.UpArrow:
+                        if (y > 0)
+                        {
+                            y -= 1;
+                        }
+                        else { Console.WriteLine("Out of bounds!"); }
+                        break;
+                    case ConsoleKey.DownArrow:
+
+                        if (y < 10)
+                        {
+                            y += 1;
+                        }
+                        else { Console.WriteLine("Out of bounds!"); }
+
+                        break;
+                    case ConsoleKey.LeftArrow:
+                        if (x > 0)
+                        {
+                            x -= 1;
+                        }
+                        else { Console.WriteLine("Out of bounds!"); }
+                        break;
+                    case ConsoleKey.RightArrow:
+
+                        if (x < 10)
+                        {
+                            x += 1;
+                        }
+
+                        break;
+                    case ConsoleKey.Enter:
+                        if (x < 10 && x > -1 && y < 10 && y > -1 && GameBoard[y, x] != 'X' && GameBoard[y, x] != 'O')
+                        {
+
+                            //if(hvis et skib er sunket) {Console.WriteLine("Sunk!");}
+
+                            /*else*/
+                            if (Enemy.GameBoard[y, x] != ' ')
+                            {
+                                GameBoard[y, x] = 'X';
+                                Enemy.GameBoard[y, x] = 'X';
+                                Console.WriteLine("HIT!");
+                                running = false;
+                            }
+                            else
+                            {
+                                GameBoard[y, x] = 'O';
+                                Enemy.GameBoard[y, x] = 'O';
+                                Console.WriteLine("SPLASH!");
+                                running = false;
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine("That is not a valid position");
+                            Console.WriteLine("Press enter to continue");
+                            Console.ReadLine();
+                        }
+                        break;
+                    default:
+                        break;
+                }              
+            }
+        }
     }
-
 }
