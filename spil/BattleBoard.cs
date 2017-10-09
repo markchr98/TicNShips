@@ -210,49 +210,45 @@ namespace spil
                         {
                             y -= 1;
                         }
-                        else { Console.WriteLine("Out of bounds!"); }
                         break;
+
                     case ConsoleKey.DownArrow:
                         if (vertical)
                         {
                             if (y < 10 - current.Length)
                             {
                                 y += 1;
-                            }
-                            else { Console.WriteLine("Out of bounds!"); }
+                            }                            
                         }
                         else
                         {
                             if (y < 9)
                             {
                                 y += 1;
-                            }
-                            else { Console.WriteLine("Out of bounds!"); }
+                            }                           
                         }
                         break;
                     case ConsoleKey.LeftArrow:
                         if (x > 0)
                         {
                             x -= 1;
-                        }
-                        else { Console.WriteLine("Out of bounds!"); }
+                        }                        
                         break;
+
                     case ConsoleKey.RightArrow:
                         if (vertical)
                         {
                             if (x < 9)
                             {
                                 x += 1;
-                            }
-                            else { Console.WriteLine("Out of bounds!"); }
+                            }                            
                         }
                         else
                         {
                             if (x < 10 - current.Length)
                             {
                                 x += 1;
-                            }
-                            else { Console.WriteLine("Out of bounds!"); }
+                            }                            
                         }
                         break;
                     case ConsoleKey.Enter:
@@ -327,7 +323,9 @@ namespace spil
                 Dummy.GameBoard[y, x] = '+';
 
                 Console.Clear();
-                Console.WriteLine(Dummy.GetGameboardView());                
+                Console.WriteLine(Dummy.GetGameboardView());
+                Console.WriteLine("Use arrows to move marker.");
+                Console.WriteLine("Use Enter to shoot at current position.");
 
                 var ch = Console.ReadKey(false).Key;
 
@@ -337,33 +335,30 @@ namespace spil
                         if (y > 0)
                         {
                             y -= 1;
-                        }
-                        else { Console.WriteLine("Out of bounds!"); }
+                        }                        
                         break;
-                    case ConsoleKey.DownArrow:
 
+                    case ConsoleKey.DownArrow:
                         if (y < 10)
                         {
                             y += 1;
                         }
-                        else { Console.WriteLine("Out of bounds!"); }
-
                         break;
+
                     case ConsoleKey.LeftArrow:
                         if (x > 0)
                         {
                             x -= 1;
-                        }
-                        else { Console.WriteLine("Out of bounds!"); }
+                        }                        
                         break;
-                    case ConsoleKey.RightArrow:
 
+                    case ConsoleKey.RightArrow:
                         if (x < 10)
                         {
                             x += 1;
                         }
-
                         break;
+
                     case ConsoleKey.Enter:
                         if (x < 10 && x > -1 && y < 10 && y > -1 && GameBoard[y, x] != 'X' && GameBoard[y, x] != 'O')
                         {
