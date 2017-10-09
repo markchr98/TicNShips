@@ -7,6 +7,7 @@ namespace Test
     [TestClass]
     public class BattleshipsTest
     {
+
         [TestMethod]
         public void PlayerOneTurn()
         {
@@ -18,16 +19,6 @@ namespace Test
         }
 
         [TestMethod]
-        public void ChooseGameMode()
-      
-        {
-            BattleshipsMenu battleshipsMenu = new BattleshipsMenu();
-            bool expected = false;
-            bool actual = battleshipsMenu.startednewgame;
-            Assert.AreEqual(expected, actual);
-
-        }
-        [TestMethod]
         public void Shooting()
         {
             BattleshipsMenu battleshipsMenu = new BattleshipsMenu();
@@ -35,21 +26,32 @@ namespace Test
             bool actual = battleshipsMenu.shooting;
             Assert.AreEqual(expected, actual);
         }
-        //[TestMethod]
-        //public void LoadBattleBoard()
-        //{
-        //    BattleBoard battleBoard = new BattleBoard();
-        //   =  ;
-        //     = BattleBoard.
-        //}
-        //[TestMethod]
-        //public void MenuSelectionError()
-        //{
-        //    BattleshipsMenu battleshipsMenu = new BattleshipsMenu();
-        //     string expected = "Invalid choice.";
-        //    string actual = battleshipsMenu.ShowMenuSelectionError;
-        //    Assert.ReferenceEquals (expected, actual);
-        //}
+
+        [TestMethod]
+        public void StartNewGame()
+        {
+            BattleshipsMenu battleshipsMenu = new BattleshipsMenu();
+
+            bool expected = false;
+            bool actual = battleshipsMenu.player1;
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod]
+        public void ShipInfo()
+        {
+            BattleShip battleShip = new BattleShip(spil.Type.Patrolboat, 3);
+            PrivateObject privateObject = new PrivateObject(battleShip);
+            Assert.AreEqual<int?>(3, privateObject.GetFieldOrProperty("length") as int?);
+        }
+        [TestMethod]
+        public void ListOfShips()
+        {
+            bool actual;
+            actual = Enum.IsDefined(typeof(spil.Type), "Carrier");
+            bool expected = true;
+            Assert.AreEqual(actual, expected);
+
+        }
     }
 }
 
