@@ -14,7 +14,7 @@ namespace spil
             myProgram.Run();
         }
 
-        private void Run()
+        public void Run()
         {
             
             Console.WriteLine("Please choose what gamemode to play");

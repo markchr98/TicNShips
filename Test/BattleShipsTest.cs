@@ -19,16 +19,6 @@ namespace Test
         }
 
         [TestMethod]
-        public void ChooseGameMode()
-
-        {
-            BattleshipsMenu battleshipsMenu = new BattleshipsMenu();
-            bool expected = false;
-            bool actual = battleshipsMenu.startednewgame;
-            Assert.AreEqual(expected, actual);
-
-        }
-        [TestMethod]
         public void Shooting()
         {
             BattleshipsMenu battleshipsMenu = new BattleshipsMenu();
@@ -36,23 +26,7 @@ namespace Test
             bool actual = battleshipsMenu.shooting;
             Assert.AreEqual(expected, actual);
         }
-        //[TestInitialize]
-        //public void Gameboard
-        //[TestMethod]
-        //public void LoadBattleBoard()
-        //{
-        //    Battle battleBoard = new BattleBoard();
-        //   =  ;
-        //     = BattleBoard.
-
-        //[TestMethod]
-        //public void MenuSelectionError()
-        //{
-        //    BattleshipsMenu battleshipsMenu = new BattleshipsMenu();
-        //     string expected = "Invalid choice.";
-        //    string actual = battleshipsMenu.ShowMenuSelectionError;
-        //    Assert.ReferenceEquals (expected, actual);
-        //}
+      
         [TestMethod]
         public void StartNewGame()
         {
@@ -65,10 +39,18 @@ namespace Test
         [TestMethod]
         public void ShipInfo()
         {
-            BattleShip battleShip = new BattleShip(spil.Type.Patrolboat , 3, '▼', 2);
+            BattleShip battleShip = new BattleShip(spil.Type.Patrolboat , 3, 'B', 2);
             PrivateObject privateObject = new PrivateObject(battleShip);
-            Assert.AreEqual <int?>(2, privateObject.GetFieldOrProperty("lenght") as int?);
-            throw new  MemberAccessException("2, 2");
+            Assert.AreEqual <int?>(2, privateObject.GetFieldOrProperty("length") as int?);
+        }
+        [TestMethod]
+        public void ListOfShips()
+        {
+            bool actual;
+            actual = Enum.IsDefined(typeof(spil.Type), "Carrier");
+            bool expected = true;
+            Assert.AreEqual(actual, expected);
+
         }
     }
 }
