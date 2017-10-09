@@ -16,23 +16,16 @@ namespace spil
     };
     class BattleShip
     {
-        private Type type;
-        private int quantity;
+        private Type type;        
         private int length;
-        private char symbol;
-        public BattleShip(Type type, int quantity, char symbol, int length)
+       
+        public BattleShip(Type type, int length)
         {
-            this.type = type;
-            this.quantity = quantity;
-            this.length = length;
-            this.symbol = symbol;
+            this.type = type;           
+            this.length = length;            
         }
-        public Type Type { get { return type; } }
-
-        public char Symbol { get { return symbol; } }
-
-        public int Quantity { get { return quantity; } }
-
+        public Type Type { get; set; }
+   
         public int Length { get { return length; } }
     }
 }

@@ -5,12 +5,12 @@ namespace spil
 {
     internal class BattleBoard
     {
-        BattleShip carrier = new BattleShip(Type.Carrier, 1, 'C', 5);
-        BattleShip destroyer = new BattleShip(Type.Destroyer, 2, 'D', 3);
-        BattleShip submarine = new BattleShip(Type.Submarine, 1, 'S', 3);
-        BattleShip patrolboat = new BattleShip(Type.Patrolboat, 3, 'P', 2);
-        BattleShip battleship = new BattleShip(Type.Battleship, 2, 'B', 4);
-        BattleShip notvalid = new BattleShip(Type.Battleship, 0, ' ', 0);
+        BattleShip carrier = new BattleShip(Type.Carrier, 5);
+        BattleShip destroyer = new BattleShip(Type.Destroyer, 3);
+        BattleShip submarine = new BattleShip(Type.Destroyer, 3);
+        BattleShip patrolboat = new BattleShip(Type.Submarine, 3);
+        BattleShip battleship = new BattleShip(Type.Patrolboat, 2);      
+        BattleShip notvalid = new BattleShip(Type.Battleship, 0);
         public char[,] GameBoard { get; set; }
         public BattleBoard()
         {
@@ -86,11 +86,11 @@ namespace spil
         {
             BattleShip current;
 
-            int CarrierQuantity = carrier.Quantity;
-            int SubmarineQuantity = submarine.Quantity;
-            int BattleshipQuantity = battleship.Quantity;
-            int PatrolboatQuantity = patrolboat.Quantity;
-            int DestroyerQuantity = destroyer.Quantity;
+            int CarrierQuantity = 1;//1
+            int SubmarineQuantity = 0;//1
+            int BattleshipQuantity = 0;//2
+            int PatrolboatQuantity = 0;//3
+            int DestroyerQuantity = 0;//2
 
 
             bool running = true;
@@ -114,7 +114,7 @@ namespace spil
                         break;
 
                     case ConsoleKey.D2:
-                        if (BattleshipQuantity != 0) { current = battleship; BattleshipQuantity -= 1; }
+                        if (BattleshipQuantity != 0){ current = battleship; BattleshipQuantity -= 1; }
                         else { current = notvalid; }
                         break;
 
@@ -172,6 +172,7 @@ namespace spil
 
         private void placeShips(bool placeMode, BattleShip current) // Function which handles placement of ships
         {
+            int counter = 1;
             BattleBoard Dummy = new BattleBoard();
             int y = 0, x = 0;
             bool vertical = true;
@@ -183,11 +184,11 @@ namespace spil
                 {
                     if (vertical)
                     {
-                        Dummy.GameBoard[y + i, x] = current.Symbol;
+                        Dummy.GameBoard[y + i, x] = Convert.ToChar(counter);
                     }
                     else
                     {
-                        Dummy.GameBoard[y, x + i] = current.Symbol;
+                        Dummy.GameBoard[y, x + i] = Convert.ToChar(counter);
                     }
                 }
                 Console.Clear();
@@ -289,11 +290,13 @@ namespace spil
                             {
                                 if (vertical)
                                 {
-                                    GameBoard[y + i, x] = current.Symbol;
+                                    GameBoard[y + i, x] = Convert.ToChar(counter);
+                                    counter++;
                                 }
                                 else
                                 {
-                                    GameBoard[y, x + i] = current.Symbol;
+                                    GameBoard[y, x + i] = Convert.ToChar(counter);
+                                    counter++;
                                 }
                             }
                             placeMode = false;
@@ -339,7 +342,7 @@ namespace spil
                         break;
 
                     case ConsoleKey.DownArrow:
-                        if (y < 10)
+                        if (y < 9)
                         {
                             y += 1;
                         }
@@ -353,7 +356,7 @@ namespace spil
                         break;
 
                     case ConsoleKey.RightArrow:
-                        if (x < 10)
+                        if (x < 9)
                         {
                             x += 1;
                         }
@@ -362,15 +365,26 @@ namespace spil
                     case ConsoleKey.Enter:
                         if (x < 10 && x > -1 && y < 10 && y > -1 && GameBoard[y, x] != 'X' && GameBoard[y, x] != 'O')
                         {
-
-                            //if(hvis et skib er sunket) {Console.WriteLine("Sunk!");}
-
-                            /*else*/
+                            int counter = 0;
+                            foreach(char c in Enemy.GameBoard)
+                            {
+                                if(c == Enemy.GameBoard[y, x])
+                                {
+                                    counter++;
+                                }                                
+                            }
                             if (Enemy.GameBoard[y, x] != ' ')
                             {
                                 GameBoard[y, x] = 'X';
                                 Enemy.GameBoard[y, x] = 'X';
-                                Console.WriteLine("HIT!");
+                                if (counter <= 1)
+                                {
+                                    Console.WriteLine("SUNK!");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("HIT!");
+                                }
                                 running = false;
                             }
                             else
