@@ -36,9 +36,6 @@ namespace spil
                     battleshipsMenu.Show();
                     break;
             }
-
-
-            
         }
     }
 }
