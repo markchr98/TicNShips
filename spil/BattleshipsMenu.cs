@@ -41,6 +41,7 @@ namespace spil
                                 Gameboard1.ChooseShip();
                                 Gameboard2.ChooseShip();
                                 placedships = true;
+                                shooting = true;
                             }
                             else
                             {
@@ -114,7 +115,7 @@ namespace spil
                 {
                     if (!shooting)
                     {
-                        shooting = true;
+                        
                         Console.WriteLine("-----[ PLAYER 2 SHIPS ]-----");
                         Console.WriteLine(Gameboard2.GetGameboardView());
                         Console.WriteLine();
