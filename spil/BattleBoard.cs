@@ -5,11 +5,12 @@ namespace spil
 {
     public class BattleBoard
     {
+        BattleshipsMenu battleshipsMenu = new BattleshipsMenu();
         BattleShip carrier = new BattleShip(Type.Carrier, 5);
         BattleShip destroyer = new BattleShip(Type.Destroyer, 3);
         BattleShip submarine = new BattleShip(Type.Destroyer, 3);
         BattleShip patrolboat = new BattleShip(Type.Submarine, 3);
-        BattleShip battleship = new BattleShip(Type.Patrolboat, 2);      
+        BattleShip battleship = new BattleShip(Type.Patrolboat, 2);
         BattleShip notvalid = new BattleShip(Type.Battleship, 0);
         public char[,] GameBoard { get; set; }
         public BattleBoard()
@@ -97,7 +98,7 @@ namespace spil
             while (running)
             {
                 Console.Clear();
-                Console.WriteLine(GetGameboardView());
+                Console.WriteLine(getplayerview());
                 Console.WriteLine("Choose 1 for Carrier:" + CarrierQuantity + " remaining");
                 Console.WriteLine("Choose 2 for Battleship: " + BattleshipQuantity + " remaining");
                 Console.WriteLine("Choose 3 for Destroyer: " + DestroyerQuantity + " remaining");
@@ -114,7 +115,7 @@ namespace spil
                         break;
 
                     case ConsoleKey.D2:
-                        if (BattleshipQuantity != 0){ current = battleship; BattleshipQuantity -= 1; }
+                        if (BattleshipQuantity != 0) { current = battleship; BattleshipQuantity -= 1; }
                         else { current = notvalid; }
                         break;
 
@@ -141,7 +142,7 @@ namespace spil
                 {
                     // Show gameboard and menu
                     Console.Clear();
-                    Console.WriteLine(GetGameboardView());
+                    Console.WriteLine(getplayerview());
                     Console.WriteLine();
                     Console.WriteLine("Use arrows to move ship.");
                     Console.WriteLine("Press R to rotate ship.");
@@ -162,7 +163,7 @@ namespace spil
                 {
                     running = false;
                     Console.Clear();
-                    GetGameboardView();
+                    getplayerview();
                     Console.WriteLine("You have placed all of you ships");
                     Console.WriteLine("Press enter to continue");
                     Console.ReadLine();
@@ -184,15 +185,15 @@ namespace spil
                 {
                     if (vertical)
                     {
-                        Dummy.GameBoard[y + i, x] = Convert.ToChar(counter+48);
+                        Dummy.GameBoard[y + i, x] = Convert.ToChar(counter + 48);
                     }
                     else
                     {
-                        Dummy.GameBoard[y, x + i] = Convert.ToChar(counter+48);
+                        Dummy.GameBoard[y, x + i] = Convert.ToChar(counter + 48);
                     }
                 }
                 Console.Clear();
-                Console.WriteLine(Dummy.GetGameboardView());
+                Console.WriteLine(Dummy.getplayerview());
                 Console.WriteLine();
                 Console.WriteLine("Use arrows to move ship.");
                 Console.WriteLine("Press R to rotate ship.");
@@ -219,21 +220,21 @@ namespace spil
                             if (y < 10 - current.Length)
                             {
                                 y += 1;
-                            }                            
+                            }
                         }
                         else
                         {
                             if (y < 9)
                             {
                                 y += 1;
-                            }                           
+                            }
                         }
                         break;
                     case ConsoleKey.LeftArrow:
                         if (x > 0)
                         {
                             x -= 1;
-                        }                        
+                        }
                         break;
 
                     case ConsoleKey.RightArrow:
@@ -242,14 +243,14 @@ namespace spil
                             if (x < 9)
                             {
                                 x += 1;
-                            }                            
+                            }
                         }
                         else
                         {
                             if (x < 10 - current.Length)
                             {
                                 x += 1;
-                            }                            
+                            }
                         }
                         break;
                     case ConsoleKey.Enter:
@@ -290,11 +291,11 @@ namespace spil
                             {
                                 if (vertical)
                                 {
-                                    GameBoard[y + i, x] = Convert.ToChar(counter+48);                                    
+                                    GameBoard[y + i, x] = Convert.ToChar(counter + 48);
                                 }
                                 else
                                 {
-                                    GameBoard[y, x + i] = Convert.ToChar(counter+48);                                    
+                                    GameBoard[y, x + i] = Convert.ToChar(counter + 48);
                                 }
                             }
                             counter++;
@@ -325,7 +326,7 @@ namespace spil
                 Dummy.GameBoard[y, x] = '+';
 
                 Console.Clear();
-                Console.WriteLine(Dummy.GetGameboardView());
+                Console.WriteLine(Dummy.getplayerview());
                 Console.WriteLine("Use arrows to move marker.");
                 Console.WriteLine("Use Enter to shoot at current position.");
 
@@ -337,7 +338,7 @@ namespace spil
                         if (y > 0)
                         {
                             y -= 1;
-                        }                        
+                        }
                         break;
 
                     case ConsoleKey.DownArrow:
@@ -351,7 +352,7 @@ namespace spil
                         if (x > 0)
                         {
                             x -= 1;
-                        }                        
+                        }
                         break;
 
                     case ConsoleKey.RightArrow:
@@ -365,12 +366,12 @@ namespace spil
                         if (x < 10 && x > -1 && y < 10 && y > -1 && GameBoard[y, x] != 'X' && GameBoard[y, x] != 'O')
                         {
                             int counter = 0;
-                            foreach(char c in Enemy.GameBoard)
+                            foreach (char c in Enemy.GameBoard)
                             {
-                                if(c == Enemy.GameBoard[y, x])
+                                if (c == Enemy.GameBoard[y, x])
                                 {
                                     counter++;
-                                }                                
+                                }
                             }
                             if (Enemy.GameBoard[y, x] != ' ')
                             {
@@ -379,13 +380,13 @@ namespace spil
                                 if (counter <= 1)
                                 {
                                     Console.Clear();
-                                    Console.WriteLine(GetGameboardView());
-                                    Console.WriteLine("SUNK!");                                    
+                                    Console.WriteLine(getplayerview());
+                                    Console.WriteLine("SUNK!");
                                 }
                                 else
                                 {
                                     Console.Clear();
-                                    Console.WriteLine(GetGameboardView());
+                                    Console.WriteLine(getplayerview());
                                     Console.WriteLine("HIT!");
                                 }
                                 running = false;
@@ -395,8 +396,8 @@ namespace spil
                                 GameBoard[y, x] = 'O';
                                 Enemy.GameBoard[y, x] = 'O';
                                 Console.Clear();
-                                Console.WriteLine(GetGameboardView());
-                                Console.WriteLine("SPLASH!");                                
+                                Console.WriteLine(getplayerview());
+                                Console.WriteLine("SPLASH!");
                                 running = false;
                             }
                             Thread.Sleep(2000);
@@ -410,24 +411,52 @@ namespace spil
                         break;
                     default:
                         break;
-                }              
+                }
             }
         }
         public bool winner()
         {
             int counter = 0;
-            foreach(char c in GameBoard)
+            foreach (char c in GameBoard)
             {
-                if (c != ' ' && c !='X' && c !='O')
+                if (c != ' ' && c != 'X' && c != 'O')
                 {
                     counter++;
                 }
             }
-            if (counter == 0)            
+            if (counter == 0)
                 return true;
-            
+
             else return false;
-                        
+
+        }
+        public string getplayerview()
+        {
+            string output = "";
+            if (!battleshipsMenu.shooting)
+            {
+                if (battleshipsMenu.player1)
+                {
+                    output = "-----[ BATTLE SHIPS ]-----" + "\n" + "-----[ PLAYER 1 SHIPS ]-----" + GetGameboardView();
+                }
+                if (!battleshipsMenu.player1)
+                {
+                    output = "-----[ BATTLE SHIPS ]-----" + "\n" + "-----[ PLAYER 2 SHIPS ]-----" + GetGameboardView();
+                }
+            }
+            else
+            {
+
+                if (battleshipsMenu.player1)
+                {
+                    output = "-----[ BATTLE SHIPS ]-----" + "\n" + "-----[ PLAYER 1 HITS ]-----" + GetGameboardView();
+                }
+                if (!battleshipsMenu.player1)
+                {
+                    output = "-----[ BATTLE SHIPS ]-----" + "\n" + "-----[ PLAYER 2 HITS ]-----" + GetGameboardView();
+                }
+            }
+            return output;
         }
     }
 }
