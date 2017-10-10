@@ -8,11 +8,13 @@ namespace spil
         BattleshipsMenu battleshipsMenu = new BattleshipsMenu();
         BattleShip carrier = new BattleShip(Type.Carrier, 5);
         BattleShip destroyer = new BattleShip(Type.Destroyer, 3);
-        BattleShip submarine = new BattleShip(Type.Destroyer, 3);
-        BattleShip patrolboat = new BattleShip(Type.Submarine, 3);
-        BattleShip battleship = new BattleShip(Type.Patrolboat, 2);
+        BattleShip submarine = new BattleShip(Type.Submarine, 3);
+        BattleShip patrolboat = new BattleShip(Type.Patrolboat, 2);
+        BattleShip battleship = new BattleShip(Type.Battleship, 4);
         BattleShip notvalid = new BattleShip(Type.Battleship, 0);
         public char[,] GameBoard { get; set; }
+        bool player1;
+        bool shooting;
         public BattleBoard()
         {
             GameBoard = new char[10, 10]
@@ -433,13 +435,13 @@ namespace spil
         public string getplayerview()
         {
             string output = "";
-            if (!battleshipsMenu.shooting)
+            if (!shooting)
             {
-                if (battleshipsMenu.player1)
+                if (player1)
                 {
                     output = "-----[ BATTLE SHIPS ]-----" + "\n" + "-----[ PLAYER 1 SHIPS ]-----" + GetGameboardView();
                 }
-                if (!battleshipsMenu.player1)
+                if (!player1)
                 {
                     output = "-----[ BATTLE SHIPS ]-----" + "\n" + "-----[ PLAYER 2 SHIPS ]-----" + GetGameboardView();
                 }
@@ -447,11 +449,11 @@ namespace spil
             else
             {
 
-                if (battleshipsMenu.player1)
+                if (player1)
                 {
                     output = "-----[ BATTLE SHIPS ]-----" + "\n" + "-----[ PLAYER 1 HITS ]-----" + GetGameboardView();
                 }
-                if (!battleshipsMenu.player1)
+                if (!player1)
                 {
                     output = "-----[ BATTLE SHIPS ]-----" + "\n" + "-----[ PLAYER 2 HITS ]-----" + GetGameboardView();
                 }
