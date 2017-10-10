@@ -5,12 +5,13 @@ namespace spil
 {
     public class BattleBoard
     {
+        int counter = 1;
         BattleshipsMenu battleshipsMenu = new BattleshipsMenu();
         BattleShip carrier = new BattleShip(Type.Carrier, 5);
         BattleShip destroyer = new BattleShip(Type.Destroyer, 3);
         BattleShip submarine = new BattleShip(Type.Destroyer, 3);
         BattleShip patrolboat = new BattleShip(Type.Submarine, 3);
-        BattleShip battleship = new BattleShip(Type.Patrolboat, 2);
+        BattleShip battleship = new BattleShip(Type.Patrolboat, 4);
         BattleShip notvalid = new BattleShip(Type.Battleship, 0);
         public char[,] GameBoard { get; set; }
         public BattleBoard()
@@ -172,8 +173,7 @@ namespace spil
         }
 
         private void placeShips(bool placeMode, BattleShip current) // Function which handles placement of ships
-        {
-            int counter = 1;
+        {            
             BattleBoard Dummy = new BattleBoard();
             int y = 0, x = 0;
             bool vertical = true;
