@@ -86,7 +86,7 @@ namespace spil
                     Console.Clear();
                     Console.WriteLine();
                     Console.WriteLine("PLAYER 1 IS THE WINNER!");
-                    Thread.Sleep(1500);
+                    Thread.Sleep(2000);
                     startednewgame = false;
                 }
                 if (Gameboard2.winner())
@@ -94,7 +94,7 @@ namespace spil
                     Console.Clear();
                     Console.WriteLine();
                     Console.WriteLine("PLAYER 1 IS THE WINNER!");
-                    Thread.Sleep(1500);
+                    Thread.Sleep(2000);
                     startednewgame = false;
                 }
 

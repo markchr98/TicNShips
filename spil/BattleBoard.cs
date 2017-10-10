@@ -86,11 +86,11 @@ namespace spil
         {
             BattleShip current;
 
-            int CarrierQuantity = 1;//1
-            int SubmarineQuantity = 0;//1
-            int BattleshipQuantity = 0;//2
-            int PatrolboatQuantity = 0;//3
-            int DestroyerQuantity = 0;//2
+            int CarrierQuantity = 1;
+            int SubmarineQuantity = 1;
+            int BattleshipQuantity = 2;
+            int PatrolboatQuantity = 3;
+            int DestroyerQuantity = 2;
 
 
             bool running = true;
@@ -305,7 +305,7 @@ namespace spil
                             Console.Clear();
                             Console.WriteLine();
                             Console.WriteLine("Placement not valid");
-                            Thread.Sleep(1500);
+                            Thread.Sleep(2000);
                         }
                         //Console.WriteLine(y.ToString() +", "+ x.ToString());
                         break;
@@ -399,7 +399,7 @@ namespace spil
                                 Console.WriteLine("SPLASH!");                                
                                 running = false;
                             }
-                            Thread.Sleep(1500);
+                            Thread.Sleep(2000);
                         }
                         else
                         {
