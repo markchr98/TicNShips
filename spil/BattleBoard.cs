@@ -184,11 +184,11 @@ namespace spil
                 {
                     if (vertical)
                     {
-                        Dummy.GameBoard[y + i, x] = Convert.ToChar(counter);
+                        Dummy.GameBoard[y + i, x] = Convert.ToChar(counter+48);
                     }
                     else
                     {
-                        Dummy.GameBoard[y, x + i] = Convert.ToChar(counter);
+                        Dummy.GameBoard[y, x + i] = Convert.ToChar(counter+48);
                     }
                 }
                 Console.Clear();
