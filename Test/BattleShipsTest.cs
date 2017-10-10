@@ -35,6 +35,7 @@ namespace Test
             bool actual = battleshipsMenu.player1;
             Assert.AreEqual(expected, actual);
         }
+
         [TestMethod]
         public void ShipInfo()
         {
@@ -42,6 +43,7 @@ namespace Test
             PrivateObject privateObject = new PrivateObject(battleShip);
             Assert.AreEqual<int?>(3, privateObject.GetFieldOrProperty("length") as int?);
         }
+
         [TestMethod]
         public void ShipCarrierExists()
         {
@@ -50,6 +52,7 @@ namespace Test
             bool expected = true;
             Assert.AreEqual(actual, expected);
         }
+
         [TestMethod]
         public void ShipSubmarineExists()
         {
@@ -58,6 +61,7 @@ namespace Test
             bool expected = true;
             Assert.AreEqual(actual, expected);
         }
+
         [TestMethod]
         public void ShipDestroyerExists()
         {
@@ -66,6 +70,7 @@ namespace Test
             bool expected = true;
             Assert.AreEqual(actual, expected);
         }
+
         [TestMethod]
         public void ShipPatrolboatExists()
         {
@@ -74,6 +79,7 @@ namespace Test
             bool expected = true;
             Assert.AreEqual(actual, expected);
         }
+
         [TestMethod]
         public void ShipBattleshipExists()
         {
