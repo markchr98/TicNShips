@@ -414,5 +414,21 @@ namespace spil
                 }              
             }
         }
+        public bool winner()
+        {
+            int counter = 0;
+            foreach(char c in GameBoard)
+            {
+                if (c != ' ' && c !='X' && c !='O')
+                {
+                    counter++;
+                }
+            }
+            if (counter == 0)            
+                return true;
+            
+            else return false;
+                        
+        }
     }
 }
