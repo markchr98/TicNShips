@@ -14,6 +14,8 @@ namespace spil
         BattleShip battleship = new BattleShip(Type.Battleship, 4);
         BattleShip notvalid = new BattleShip(Type.Battleship, 0);
         public char[,] GameBoard { get; set; }
+        bool player1;
+        bool shooting;
         public BattleBoard()
         {
             GameBoard = new char[10, 10]
