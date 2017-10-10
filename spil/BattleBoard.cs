@@ -9,9 +9,9 @@ namespace spil
         BattleshipsMenu battleshipsMenu = new BattleshipsMenu();
         BattleShip carrier = new BattleShip(Type.Carrier, 5);
         BattleShip destroyer = new BattleShip(Type.Destroyer, 3);
-        BattleShip submarine = new BattleShip(Type.Destroyer, 3);
-        BattleShip patrolboat = new BattleShip(Type.Submarine, 3);
-        BattleShip battleship = new BattleShip(Type.Patrolboat, 4);
+        BattleShip submarine = new BattleShip(Type.Submarine, 3);
+        BattleShip patrolboat = new BattleShip(Type.Patrolboat, 2);
+        BattleShip battleship = new BattleShip(Type.Battleship, 4);
         BattleShip notvalid = new BattleShip(Type.Battleship, 0);
         public char[,] GameBoard { get; set; }
         public BattleBoard()
@@ -433,27 +433,27 @@ namespace spil
         public string getplayerview()
         {
             string output = "";
-            if (!battleshipsMenu.shooting)
+            if (!BattleshipsMenu.shooting)
             {
-                if (battleshipsMenu.player1)
+                if (BattleshipsMenu.player1)
                 {
-                    output = "-----[ BATTLE SHIPS ]-----" + "\n" + "-----[ PLAYER 1 SHIPS ]-----" + GetGameboardView();
+                    output = "-----[ BATTLE SHIPS ]-----" + "\n" + "-----[ PLAYER 1 SHIPS ]-----\n" + GetGameboardView();
                 }
-                if (!battleshipsMenu.player1)
+                if (!BattleshipsMenu.player1)
                 {
-                    output = "-----[ BATTLE SHIPS ]-----" + "\n" + "-----[ PLAYER 2 SHIPS ]-----" + GetGameboardView();
+                    output = "-----[ BATTLE SHIPS ]-----" + "\n" + "-----[ PLAYER 2 SHIPS ]-----\n" + GetGameboardView();
                 }
             }
             else
             {
 
-                if (battleshipsMenu.player1)
+                if (BattleshipsMenu.player1)
                 {
-                    output = "-----[ BATTLE SHIPS ]-----" + "\n" + "-----[ PLAYER 1 HITS ]-----" + GetGameboardView();
+                    output = "-----[ BATTLE SHIPS ]-----" + "\n" + "-----[ PLAYER 1 HITS ]-----\n" + GetGameboardView();
                 }
-                if (!battleshipsMenu.player1)
+                if (!BattleshipsMenu.player1)
                 {
-                    output = "-----[ BATTLE SHIPS ]-----" + "\n" + "-----[ PLAYER 2 HITS ]-----" + GetGameboardView();
+                    output = "-----[ BATTLE SHIPS ]-----" + "\n" + "-----[ PLAYER 2 HITS ]-----\n" + GetGameboardView();
                 }
             }
             return output;

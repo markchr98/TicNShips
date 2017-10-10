@@ -14,8 +14,8 @@ namespace spil
         BattleBoard Gameboardshoot1;
         BattleBoard Gameboardshoot2;
 
-        public bool player1;
-        public bool shooting;
+        public static bool player1;
+        public static bool shooting;
         public bool startednewgame;
         public bool placedships;
         internal void Show()
@@ -40,7 +40,9 @@ namespace spil
                             if (!placedships)
                             {
                                 Gameboard1.ChooseShip();
+                                player1 = false;
                                 Gameboard2.ChooseShip();
+                                player1 = true;
                                 placedships = true;
                                 shooting = true;
                             }
