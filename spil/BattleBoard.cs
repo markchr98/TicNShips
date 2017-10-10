@@ -3,7 +3,7 @@ using System.Threading;
 
 namespace spil
 {
-    internal class BattleBoard
+    public class BattleBoard
     {
         BattleShip carrier = new BattleShip(Type.Carrier, 5);
         BattleShip destroyer = new BattleShip(Type.Destroyer, 3);
