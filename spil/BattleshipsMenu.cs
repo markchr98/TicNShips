@@ -70,6 +70,22 @@ namespace spil
                                 Console.WriteLine("Press enter to continue");
                                 Console.ReadLine();
                             }
+                            if (Gameboard1.winner())
+                            {
+                                Console.Clear();
+                                Console.WriteLine();
+                                Console.WriteLine("PLAYER 1 IS THE WINNER!");
+                                Thread.Sleep(2000);
+                                startednewgame = false;
+                            }
+                            if (Gameboard2.winner())
+                            {
+                                Console.Clear();
+                                Console.WriteLine();
+                                Console.WriteLine("PLAYER 2 IS THE WINNER!");
+                                Thread.Sleep(2000);
+                                startednewgame = false;
+                            }
                         }
                         else
                         {
@@ -81,25 +97,7 @@ namespace spil
 
                     default: ShowMenuSelectionError(); break;
                 }
-                if (Gameboard1.winner())
-                {
-                    Console.Clear();
-                    Console.WriteLine();
-                    Console.WriteLine("PLAYER 1 IS THE WINNER!");
-                    Thread.Sleep(2000);
-                    startednewgame = false;
-                }
-                if (Gameboard2.winner())
-                {
-                    Console.Clear();
-                    Console.WriteLine();
-                    Console.WriteLine("PLAYER 1 IS THE WINNER!");
-                    Thread.Sleep(2000);
-                    startednewgame = false;
-                }
-
             }
-
         }
 
         internal void Menu()
