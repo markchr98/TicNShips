@@ -3,7 +3,7 @@ using System.Threading;
 
 namespace spil
 {
-    internal class BattleBoard
+    public class BattleBoard
     {
         BattleShip carrier = new BattleShip(Type.Carrier, 5);
         BattleShip destroyer = new BattleShip(Type.Destroyer, 3);
@@ -184,11 +184,11 @@ namespace spil
                 {
                     if (vertical)
                     {
-                        Dummy.GameBoard[y + i, x] = Convert.ToChar(counter);
+                        Dummy.GameBoard[y + i, x] = Convert.ToChar(counter+48);
                     }
                     else
                     {
-                        Dummy.GameBoard[y, x + i] = Convert.ToChar(counter);
+                        Dummy.GameBoard[y, x + i] = Convert.ToChar(counter+48);
                     }
                 }
                 Console.Clear();
@@ -290,12 +290,12 @@ namespace spil
                             {
                                 if (vertical)
                                 {
-                                    GameBoard[y + i, x] = Convert.ToChar(counter);
+                                    GameBoard[y + i, x] = Convert.ToChar(counter+48);
                                     counter++;
                                 }
                                 else
                                 {
-                                    GameBoard[y, x + i] = Convert.ToChar(counter);
+                                    GameBoard[y, x + i] = Convert.ToChar(counter+48);
                                     counter++;
                                 }
                             }
