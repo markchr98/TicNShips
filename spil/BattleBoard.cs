@@ -290,15 +290,14 @@ namespace spil
                             {
                                 if (vertical)
                                 {
-                                    GameBoard[y + i, x] = Convert.ToChar(counter+48);
-                                    counter++;
+                                    GameBoard[y + i, x] = Convert.ToChar(counter+48);                                    
                                 }
                                 else
                                 {
-                                    GameBoard[y, x + i] = Convert.ToChar(counter+48);
-                                    counter++;
+                                    GameBoard[y, x + i] = Convert.ToChar(counter+48);                                    
                                 }
                             }
+                            counter++;
                             placeMode = false;
                         }
                         else
