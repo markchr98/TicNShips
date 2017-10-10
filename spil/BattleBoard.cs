@@ -379,10 +379,14 @@ namespace spil
                                 Enemy.GameBoard[y, x] = 'X';
                                 if (counter <= 1)
                                 {
+                                    Console.Clear();
+                                    Console.WriteLine(GetGameboardView());
                                     Console.WriteLine("SUNK!");
                                 }
                                 else
                                 {
+                                    Console.Clear();
+                                    Console.WriteLine(GetGameboardView());
                                     Console.WriteLine("HIT!");
                                 }
                                 running = false;
@@ -391,9 +395,12 @@ namespace spil
                             {
                                 GameBoard[y, x] = 'O';
                                 Enemy.GameBoard[y, x] = 'O';
-                                Console.WriteLine("SPLASH!");
+                                Console.Clear();
+                                Console.WriteLine(GetGameboardView());
+                                Console.WriteLine("SPLASH!");                                
                                 running = false;
                             }
+                            Thread.Sleep(1500);
                         }
                         else
                         {
