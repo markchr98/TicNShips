@@ -61,8 +61,31 @@ namespace spil
                         {
                             if (placedships)
                             {
-                                if (player1) { Gameboardshoot1.Shoot(Gameboard2); player1 = false; }
-                                else { Gameboardshoot2.Shoot(Gameboard1); player1 = true; }
+                                if (player1)
+                                {
+                                    Gameboardshoot1.Shoot(Gameboard2);
+                                    if (Gameboard1.winner())
+                                    {
+                                        Console.Clear();
+                                        Console.WriteLine();
+                                        Console.WriteLine("PLAYER 1 IS THE WINNER!");
+                                        Thread.Sleep(2000);
+                                        startednewgame = false;
+                                    }
+                                    player1 = false;
+                                }
+                                else
+                                {
+                                    Gameboardshoot2.Shoot(Gameboard1);
+                                    if (Gameboard1.winner())
+                                    {
+                                        Console.Clear();
+                                        Console.WriteLine();
+                                        Console.WriteLine("PLAYER 1 IS THE WINNER!");
+                                        Thread.Sleep(2000);
+                                        startednewgame = false;
+                                    }
+                                    player1 = true; }
                             }
                             else
                             {
@@ -70,14 +93,7 @@ namespace spil
                                 Console.WriteLine("Press enter to continue");
                                 Console.ReadLine();
                             }
-                            if (Gameboard1.winner())
-                            {
-                                Console.Clear();
-                                Console.WriteLine();
-                                Console.WriteLine("PLAYER 1 IS THE WINNER!");
-                                Thread.Sleep(2000);
-                                startednewgame = false;
-                            }
+                            
                             if (Gameboard2.winner())
                             {
                                 Console.Clear();
