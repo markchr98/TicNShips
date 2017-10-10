@@ -77,11 +77,11 @@ namespace spil
                                 else
                                 {
                                     Gameboardshoot2.Shoot(Gameboard1);
-                                    if (Gameboard1.winner())
+                                    if (Gameboard2.winner())
                                     {
                                         Console.Clear();
                                         Console.WriteLine();
-                                        Console.WriteLine("PLAYER 1 IS THE WINNER!");
+                                        Console.WriteLine("PLAYER 2 IS THE WINNER!");
                                         Thread.Sleep(2000);
                                         startednewgame = false;
                                     }
