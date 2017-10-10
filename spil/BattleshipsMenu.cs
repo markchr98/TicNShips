@@ -14,7 +14,7 @@ namespace spil
         BattleBoard Gameboardshoot1;
         BattleBoard Gameboardshoot2;
 
-        public static bool player1;
+        public static bool player1 = true;
         public static bool shooting;
         public bool startednewgame;
         public bool placedships;
@@ -94,15 +94,28 @@ namespace spil
                                 Console.WriteLine("You have not yet placed your ships");
                                 Console.WriteLine("Press enter to continue");
                                 Console.ReadLine();
+                                break;
                             }
-                            
+                            if (Gameboard1.winner())
+                            {
+                                Console.Clear();
+                                Console.WriteLine();
+                                Console.WriteLine("PLAYER 1 IS THE LOSER!");
+                                Console.WriteLine("PLAYER 2 IS THE WINNER!");
+                                Thread.Sleep(2000);
+                                startednewgame = false;
+                                
+                            }
+
                             if (Gameboard2.winner())
                             {
                                 Console.Clear();
                                 Console.WriteLine();
-                                Console.WriteLine("PLAYER 2 IS THE WINNER!");
+                                Console.WriteLine("PLAYER 2 IS THE LOSER!");
+                                Console.WriteLine("PLAYER 1 IS THE WINNER!");
                                 Thread.Sleep(2000);
                                 startednewgame = false;
+                                player1 = false;
                             }
                         }
                         else
@@ -189,7 +202,7 @@ namespace spil
 
         internal void StartNew()
         {
-            player1 = true;
+            //player1 = true;
             shooting = false;
             startednewgame = true;
             placedships = false;

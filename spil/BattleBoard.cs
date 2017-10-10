@@ -14,8 +14,6 @@ namespace spil
         BattleShip battleship = new BattleShip(Type.Battleship, 4);
         BattleShip notvalid = new BattleShip(Type.Battleship, 0);
         public char[,] GameBoard { get; set; }
-        bool player1;
-        bool shooting;
         public BattleBoard()
         {
             GameBoard = new char[10, 10]
@@ -90,11 +88,11 @@ namespace spil
         {
             BattleShip current;
 
-            int CarrierQuantity = 1;
-            int SubmarineQuantity = 1;
-            int BattleshipQuantity = 2;
-            int PatrolboatQuantity = 3;
-            int DestroyerQuantity = 2;
+            int CarrierQuantity = 0;
+            int SubmarineQuantity = 0;
+            int BattleshipQuantity = 0;
+            int PatrolboatQuantity = 1;
+            int DestroyerQuantity = 0;
 
 
             bool running = true;
