@@ -380,7 +380,7 @@ namespace spil
                                 {
                                     Console.Clear();
                                     Console.WriteLine(GetGameboardView());
-                                    Console.WriteLine("SUNK!");
+                                    Console.WriteLine("SUNK!");                                    
                                 }
                                 else
                                 {

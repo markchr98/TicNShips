@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace spil
@@ -79,6 +80,22 @@ namespace spil
                     case "0": Running = false; break;
 
                     default: ShowMenuSelectionError(); break;
+                }
+                if (Gameboard1.winner())
+                {
+                    Console.Clear();
+                    Console.WriteLine();
+                    Console.WriteLine("PLAYER 1 IS THE WINNER!");
+                    Thread.Sleep(1500);
+                    startednewgame = false;
+                }
+                if (Gameboard2.winner())
+                {
+                    Console.Clear();
+                    Console.WriteLine();
+                    Console.WriteLine("PLAYER 1 IS THE WINNER!");
+                    Thread.Sleep(1500);
+                    startednewgame = false;
                 }
 
             }
