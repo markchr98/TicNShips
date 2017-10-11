@@ -13,7 +13,7 @@ namespace Test
         {
             BattleshipsMenu battleshipsMenu = new BattleshipsMenu();
             bool expected = false;
-            bool actual = battleshipsMenu.player1;
+            bool actual = BattleshipsMenu.player1;
             Assert.AreEqual(expected, actual);
         }
 
@@ -22,7 +22,7 @@ namespace Test
         {
             BattleshipsMenu battleshipsMenu = new BattleshipsMenu();
             bool expected = false;
-            bool actual = battleshipsMenu.shooting;
+            bool actual = BattleshipsMenu.shooting;
             Assert.AreEqual(expected, actual);
         }
 
@@ -32,7 +32,7 @@ namespace Test
             BattleshipsMenu battleshipsMenu = new BattleshipsMenu();
 
             bool expected = false;
-            bool actual = battleshipsMenu.player1;
+            bool actual = BattleshipsMenu.player1;
             Assert.AreEqual(expected, actual);
         }
 
