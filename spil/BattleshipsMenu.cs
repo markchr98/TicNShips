@@ -196,7 +196,8 @@ namespace spil
                 Console.WriteLine();
                 Console.WriteLine("--------------------------");
                 Console.WriteLine();
-                Console.WriteLine("Please pick an option:");            }
+                Console.WriteLine("Please pick an option:");
+            }
             else
             {
                 Console.WriteLine("---------[ MENU ]---------");
