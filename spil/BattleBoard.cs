@@ -88,11 +88,11 @@ namespace spil
         {
             BattleShip current;
 
-            int CarrierQuantity = 0;
-            int SubmarineQuantity = 0;
-            int BattleshipQuantity = 0;
-            int PatrolboatQuantity = 1;
-            int DestroyerQuantity = 0;
+            int CarrierQuantity = 1;
+            int SubmarineQuantity = 1;
+            int BattleshipQuantity = 2;
+            int PatrolboatQuantity = 3;
+            int DestroyerQuantity = 2;
 
 
             bool running = true;
