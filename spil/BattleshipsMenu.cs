@@ -48,8 +48,9 @@ namespace spil
                             }
                             else
                             {
-                                Console.WriteLine("Both players have already placed their ships");
-                                Console.WriteLine("Press enter to continue");
+                                Console.WriteLine();
+                                Console.WriteLine("Both players have already placed their ships.");
+                                Console.WriteLine("Press enter to continue.");
                                 Console.ReadLine();
                             }
                         }
@@ -91,8 +92,9 @@ namespace spil
                             }
                             else
                             {
-                                Console.WriteLine("You have not yet placed your ships");
-                                Console.WriteLine("Press enter to continue");
+                                Console.WriteLine();
+                                Console.WriteLine("You still have ships to place!");
+                                Console.WriteLine("Press enter to continue.");
                                 Console.ReadLine();
                                 break;
                             }
@@ -136,7 +138,7 @@ namespace spil
 
             Console.Clear();
             Console.WriteLine();
-            Console.WriteLine("-----[ BATTLE SHIPS ]-----");
+            Console.WriteLine("\n-----[ BATTLE SHIPS ]-----");
             Console.WriteLine();
             if (Gameboard1 != null && Gameboard2 != null)
             {
@@ -144,16 +146,19 @@ namespace spil
                 {
                     if (!shooting)
                     {
-                        Console.WriteLine("-----[ PLAYER 1 SHIPS ]-----");
+                        Console.WriteLine("----[ PLAYER 1 SHIPS ]----");
+                        Console.WriteLine();
                         Console.WriteLine(Gameboard1.GetGameboardView());
                         Console.WriteLine();
                     }
                     else
                     {
-                        Console.WriteLine("-----[ PLAYER 1 HITS ]-----");
+                        Console.WriteLine("----[ PLAYER 1 HITS ]----");
+                        Console.WriteLine();
                         Console.WriteLine(Gameboardshoot1.GetGameboardView());
                         Console.ReadLine();
-                        Console.WriteLine("-----[ PLAYER 1 SHIPS ]-----");
+                        Console.WriteLine("----[ PLAYER 1 SHIPS ]----");
+                        Console.WriteLine();
                         Console.WriteLine(Gameboard1.GetGameboardView());
                     }
                 }
@@ -162,16 +167,19 @@ namespace spil
                     if (!shooting)
                     {
                         
-                        Console.WriteLine("-----[ PLAYER 2 SHIPS ]-----");
+                        Console.WriteLine("----[ PLAYER 2 SHIPS ]----");
+                        Console.WriteLine();
                         Console.WriteLine(Gameboard2.GetGameboardView());
                         Console.WriteLine();
                     }
                     else
                     {
-                        Console.WriteLine("-----[ PLAYER 2 HITS ]-----");
+                        Console.WriteLine("----[ PLAYER 2 HITS ]----");
+                        Console.WriteLine();
                         Console.WriteLine(Gameboardshoot2.GetGameboardView());
                         Console.ReadLine();
-                        Console.WriteLine("-----[ PLAYER 2 SHIPS ]-----");
+                        Console.WriteLine("----[ PLAYER 2 SHIPS ]----");
+                        Console.WriteLine();
                         Console.WriteLine(Gameboard2.GetGameboardView());
                     }
                 }
@@ -181,21 +189,24 @@ namespace spil
             {
                 Console.WriteLine("---------[ MENU ]---------");
                 Console.WriteLine();
-                Console.WriteLine("Type 1 to start a new game");
-                Console.WriteLine("Type 2 to place ships");
-                Console.WriteLine("Type 3 to shoot at your enemy's ships");
-                Console.WriteLine("Type 0 to quit");
+                Console.WriteLine("1. Start new game");
+                Console.WriteLine("2. Place ships");
+                Console.WriteLine("3. Shoot mode");
+                Console.WriteLine("0. Close application");
                 Console.WriteLine();
                 Console.WriteLine("--------------------------");
-            }
+                Console.WriteLine();
+                Console.WriteLine("Please pick an option:");            }
             else
             {
                 Console.WriteLine("---------[ MENU ]---------");
                 Console.WriteLine();
-                Console.WriteLine("Type 1 to start a new game");
-                Console.WriteLine("Type 0 to quit");
+                Console.WriteLine("1. Start new game");
+                Console.WriteLine("0. Close application");
                 Console.WriteLine();
                 Console.WriteLine("--------------------------");
+                Console.WriteLine();
+                Console.WriteLine("Please pick an option:");
             }
 
         }
@@ -217,7 +228,7 @@ namespace spil
         public void ShowMenuSelectionError()
         {
             Console.WriteLine("Invalid choice.");
-            Console.WriteLine("Press enter to continue");
+            Console.WriteLine("Press enter to continue.");
             Console.ReadLine();
         }
     }

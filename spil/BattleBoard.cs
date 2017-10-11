@@ -100,11 +100,14 @@ namespace spil
             {
                 Console.Clear();
                 Console.WriteLine(getplayerview());
-                Console.WriteLine("Choose 1 for Carrier:" + CarrierQuantity + " remaining");
-                Console.WriteLine("Choose 2 for Battleship: " + BattleshipQuantity + " remaining");
-                Console.WriteLine("Choose 3 for Destroyer: " + DestroyerQuantity + " remaining");
-                Console.WriteLine("Choose 4 for Patrolboat: " + PatrolboatQuantity + " remaining");
-                Console.WriteLine("Choose 5 for Submarine: " + SubmarineQuantity + " remaining");
+                Console.WriteLine();
+                Console.WriteLine("Choose 1 for Carrier. You have " + CarrierQuantity + " remaining.");
+                Console.WriteLine("Choose 2 for Battleship. You have  " + BattleshipQuantity + " remaining.");
+                Console.WriteLine("Choose 3 for Destroyer. You have " + DestroyerQuantity + " remaining.");
+                Console.WriteLine("Choose 4 for Patrolboat. You have " + PatrolboatQuantity + " remaining.");
+                Console.WriteLine("Choose 5 for Submarine. You have " + SubmarineQuantity + " remaining.");
+                Console.WriteLine();
+                Console.WriteLine("Please pick an option.");
 
                 var input = Console.ReadKey(false).Key;
 
@@ -155,8 +158,9 @@ namespace spil
                 }
                 else
                 {
-                    Console.WriteLine("Option not valid");
-                    Console.WriteLine("Press enter to continue");
+                    Console.WriteLine();
+                    Console.WriteLine("Option not valid.");
+                    Console.WriteLine("Press enter to continue.");
                     Console.ReadLine();
                 }
 
@@ -165,8 +169,9 @@ namespace spil
                     running = false;
                     Console.Clear();
                     getplayerview();
-                    Console.WriteLine("You have placed all of you ships");
-                    Console.WriteLine("Press enter to continue");
+                    Console.WriteLine();
+                    Console.WriteLine("You have placed all of you ships.");
+                    Console.WriteLine("Press enter to continue.");
                     Console.ReadLine();
                 }
             }
@@ -305,7 +310,7 @@ namespace spil
                         {
                             Console.Clear();
                             Console.WriteLine();
-                            Console.WriteLine("Placement not valid");
+                            Console.WriteLine("Placement not valid.");
                             Thread.Sleep(2000);
                         }
                         //Console.WriteLine(y.ToString() +", "+ x.ToString());
@@ -327,6 +332,7 @@ namespace spil
 
                 Console.Clear();
                 Console.WriteLine(Dummy.getplayerview());
+                Console.WriteLine();
                 Console.WriteLine("Use arrows to move marker.");
                 Console.WriteLine("Use Enter to shoot at current position.");
 
@@ -404,8 +410,9 @@ namespace spil
                         }
                         else
                         {
-                            Console.WriteLine("That is not a valid position");
-                            Console.WriteLine("Press enter to continue");
+                            Console.WriteLine();
+                            Console.WriteLine("That is not a valid position.");
+                            Console.WriteLine("Press enter to continue.");
                             Console.ReadLine();
                         }
                         break;
@@ -437,11 +444,11 @@ namespace spil
             {
                 if (BattleshipsMenu.player1)
                 {
-                    output = "-----[ BATTLE SHIPS ]-----" + "\n" + "-----[ PLAYER 1 SHIPS ]-----\n" + GetGameboardView();
+                    output = "\n------[ BATTLE SHIPS ]------" + "\n\n" + "-----[ PLAYER 1 SHIPS ]-----\n\n" + GetGameboardView();
                 }
                 if (!BattleshipsMenu.player1)
                 {
-                    output = "-----[ BATTLE SHIPS ]-----" + "\n" + "-----[ PLAYER 2 SHIPS ]-----\n" + GetGameboardView();
+                    output = "\n------[ BATTLE SHIPS ]------" + "\n\n" + "-----[ PLAYER 2 SHIPS ]-----\n\n" + GetGameboardView();
                 }
             }
             else
@@ -449,11 +456,11 @@ namespace spil
 
                 if (BattleshipsMenu.player1)
                 {
-                    output = "-----[ BATTLE SHIPS ]-----" + "\n" + "-----[ PLAYER 1 HITS ]-----\n" + GetGameboardView();
+                    output = "\n------[ BATTLE SHIPS ]------" + "\n\n" + "-----[ PLAYER 1 HITS ]-----\n\n" + GetGameboardView();
                 }
                 if (!BattleshipsMenu.player1)
                 {
-                    output = "-----[ BATTLE SHIPS ]-----" + "\n" + "-----[ PLAYER 2 HITS ]-----\n" + GetGameboardView();
+                    output = "\n------[ BATTLE SHIPS ]------" + "\n\n" + "-----[ PLAYER 2 HITS ]-----\n\n" + GetGameboardView();
                 }
             }
             return output;
