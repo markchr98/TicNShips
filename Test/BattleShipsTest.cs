@@ -12,7 +12,7 @@ namespace Test
         public void PlayerOneTurn()
         {
             BattleshipsMenu battleshipsMenu = new BattleshipsMenu();
-            bool expected = false;
+            bool expected = true;
             bool actual = BattleshipsMenu.player1;
             Assert.AreEqual(expected, actual);
         }
@@ -31,7 +31,7 @@ namespace Test
         {
             BattleshipsMenu battleshipsMenu = new BattleshipsMenu();
 
-            bool expected = false;
+            bool expected = true;
             bool actual = BattleshipsMenu.player1;
             Assert.AreEqual(expected, actual);
         }
