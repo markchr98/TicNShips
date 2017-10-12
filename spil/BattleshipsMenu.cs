@@ -102,8 +102,14 @@ namespace spil
                             {
                                 Console.Clear();
                                 Console.WriteLine();
+                                Console.BackgroundColor = ConsoleColor.DarkMagenta;
+                                Console.ForegroundColor = ConsoleColor.Blue;
                                 Console.WriteLine("PLAYER 1 IS THE LOSER!");
+                                Console.ResetColor();
+                                Console.BackgroundColor = ConsoleColor.Yellow;
+                                Console.ForegroundColor = ConsoleColor.Black;
                                 Console.WriteLine("PLAYER 2 IS THE WINNER!");
+                                Console.ResetColor();
                                 Thread.Sleep(2000);
                                 startednewgame = false;
                                 
@@ -113,8 +119,14 @@ namespace spil
                             {
                                 Console.Clear();
                                 Console.WriteLine();
+                                Console.BackgroundColor = ConsoleColor.Magenta;
+                                Console.ForegroundColor = ConsoleColor.DarkBlue;
                                 Console.WriteLine("PLAYER 2 IS THE LOSER!");
+                                Console.ResetColor();
+                                Console.BackgroundColor = ConsoleColor.Yellow;
+                                Console.ForegroundColor = ConsoleColor.Black;
                                 Console.WriteLine("PLAYER 1 IS THE WINNER!");
+                                Console.ResetColor();
                                 Thread.Sleep(2000);
                                 startednewgame = false;
                                 player1 = false;
@@ -213,7 +225,7 @@ namespace spil
 
         internal void StartNew()
         {
-            //player1 = true;
+            player1 = true;
             shooting = false;
             startednewgame = true;
             placedships = false;

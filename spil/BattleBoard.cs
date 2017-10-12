@@ -94,6 +94,11 @@ namespace spil
             int PatrolboatQuantity = 3;
             int DestroyerQuantity = 2;
 
+            //int CarrierQuantity = 0;
+            //int SubmarineQuantity = 0;
+            //int BattleshipQuantity = 0;
+            //int PatrolboatQuantity = 1;
+            //int DestroyerQuantity = 0;
 
             bool running = true;
             while (running)
@@ -386,14 +391,21 @@ namespace spil
                                 if (counter <= 1)
                                 {
                                     Console.Clear();
+                                    Console.ForegroundColor = ConsoleColor.Yellow;
                                     Console.WriteLine(getplayerview());
+                                    Console.Beep(600, 150);
+                                    Console.Beep(1000, 150);
                                     Console.WriteLine("SUNK!");
+                                    Console.ResetColor();
                                 }
                                 else
                                 {
                                     Console.Clear();
+                                    Console.ForegroundColor = ConsoleColor.Red;
                                     Console.WriteLine(getplayerview());
+                                    Console.Beep(750, 300);
                                     Console.WriteLine("HIT!");
+                                    Console.ResetColor();
                                 }
                                 running = false;
                             }
@@ -402,8 +414,11 @@ namespace spil
                                 GameBoard[y, x] = 'O';
                                 Enemy.GameBoard[y, x] = 'O';
                                 Console.Clear();
+                                Console.ForegroundColor = ConsoleColor.Blue;
                                 Console.WriteLine(getplayerview());
+                                Console.Beep(300, 300);
                                 Console.WriteLine("SPLASH!");
+                                Console.ResetColor();
                                 running = false;
                             }
                             Thread.Sleep(2000);
