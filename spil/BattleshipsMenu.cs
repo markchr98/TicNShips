@@ -104,11 +104,11 @@ namespace spil
                                 Console.WriteLine();
                                 Console.BackgroundColor = ConsoleColor.DarkMagenta;
                                 Console.ForegroundColor = ConsoleColor.Blue;
-                                Console.WriteLine("PLAYER 1 IS THE LOSER!");
+                                Console.WriteLine("PLAYER 1 LOSE!");
                                 Console.ResetColor();
                                 Console.BackgroundColor = ConsoleColor.Yellow;
                                 Console.ForegroundColor = ConsoleColor.Black;
-                                Console.WriteLine("PLAYER 2 IS THE WINNER!");
+                                Console.WriteLine("PLAYER 2 WIN!");
                                 //song
                                 Console.Beep(440, 160);
                                 Console.Beep(440, 320);
@@ -211,11 +211,11 @@ namespace spil
                                 Console.WriteLine();
                                 Console.BackgroundColor = ConsoleColor.Magenta;
                                 Console.ForegroundColor = ConsoleColor.DarkBlue;
-                                Console.WriteLine("PLAYER 2 IS THE LOSER!");
+                                Console.WriteLine("PLAYER 2 LOSE!");
                                 Console.ResetColor();
                                 Console.BackgroundColor = ConsoleColor.Yellow;
                                 Console.ForegroundColor = ConsoleColor.Black;
-                                Console.WriteLine("PLAYER 1 IS THE WINNER!");
+                                Console.WriteLine("PLAYER 1 WIN!");
                                 //song
                                 Console.Beep(440, 160);
                                 Console.Beep(440, 320);
