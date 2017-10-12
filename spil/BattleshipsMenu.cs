@@ -109,6 +109,96 @@ namespace spil
                                 Console.BackgroundColor = ConsoleColor.Yellow;
                                 Console.ForegroundColor = ConsoleColor.Black;
                                 Console.WriteLine("PLAYER 2 IS THE WINNER!");
+                                //song
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(587, 160);
+                                Console.Beep(587, 320);
+                                Console.Beep(523, 160);
+                                Console.Beep(523, 320);
+                                Console.Beep(392, 320);
+                                //tact3
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(587, 160);
+                                //tact 4
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(587, 160);
+                                //tact 5
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(523, 640);
+                                //tact 6
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(587, 320);
+                                //tact7
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(587, 160);//tact 8
+                                Console.Beep(587, 320);
+                                Console.Beep(523, 160);
+                                Console.Beep(523, 320);
+                                Console.Beep(392, 320);
+                                //tact9
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(587, 320);
+                                //tact10
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(587, 320);
+                                //tact11
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(523, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(523, 320);
+                                //tact12
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(523, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(523, 320);
+                                //tact13
+                                Console.Beep(440, 160);
+                                Console.Beep(523, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(523, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(523, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(523, 320);
+                                //tact14
+                                Console.Beep(440, 160);
+                                Console.Beep(523, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(523, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(523, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(523, 320);
+                                //tact15
+                                Console.Beep(587, 20);
                                 Console.ResetColor();
                                 Thread.Sleep(2000);
                                 startednewgame = false;
@@ -126,6 +216,96 @@ namespace spil
                                 Console.BackgroundColor = ConsoleColor.Yellow;
                                 Console.ForegroundColor = ConsoleColor.Black;
                                 Console.WriteLine("PLAYER 1 IS THE WINNER!");
+                                //song
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(587, 160);
+                                Console.Beep(587, 320);
+                                Console.Beep(523, 160);
+                                Console.Beep(523, 320);
+                                Console.Beep(392, 320);
+                                //tact3
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(587, 160);
+                                //tact 4
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(587, 160);
+                                //tact 5
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(523, 640);
+                                //tact 6
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(587, 320);
+                                //tact7
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(587, 160);//tact 8
+                                Console.Beep(587, 320);
+                                Console.Beep(523, 160);
+                                Console.Beep(523, 320);
+                                Console.Beep(392, 320);
+                                //tact9
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(587, 320);
+                                //tact10
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(587, 320);
+                                //tact11
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(523, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(523, 320);
+                                //tact12
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(523, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(440, 320);
+                                Console.Beep(523, 320);
+                                //tact13
+                                Console.Beep(440, 160);
+                                Console.Beep(523, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(523, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(523, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(523, 320);
+                                //tact14
+                                Console.Beep(440, 160);
+                                Console.Beep(523, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(523, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(523, 320);
+                                Console.Beep(440, 160);
+                                Console.Beep(523, 320);
+                                //tact15
+                                Console.Beep(587, 20);
                                 Console.ResetColor();
                                 Thread.Sleep(2000);
                                 startednewgame = false;
